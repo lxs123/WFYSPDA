@@ -235,9 +235,9 @@ public class BjrkActivity extends AppCompatActivity {
         for (Object o : list) {
             List<Object> objectList = (List<Object>) o;
             List<Object> objectList1 = new ArrayList<>();
-            objectList1.add("5801");//0
-            objectList1.add("11");//1
-            objectList1.add("");//2
+            objectList1.add("5801");//0单别
+            objectList1.add("11");//1工厂编号
+            objectList1.add("");//2备注
             objectList1.add(objectList.get(0));//3工作中心
             objectList1.add(objectList.get(13));//4项目号
             StringBuilder builder = new StringBuilder();
@@ -254,22 +254,22 @@ public class BjrkActivity extends AppCompatActivity {
             objectList1.add(objectList.get(18));//8入库数量
             objectList1.add(0);//9
             objectList1.add(objectList.get(18));//10验收数量
-            objectList1.add(objectList.get(7));//10单别
-            objectList1.add(objectList.get(8));//11单号
-            objectList1.add("Y");//12
-            objectList1.add("********************");//13
-            objectList1.add("##########");//14
-            objectList1.add("");//15
-            objectList1.add(objectList.get(1));//16pm
-            objectList1.add(objectList.get(3));//17gg
-            objectList1.add(objectList.get(17));//18dw
-            objectList1.add(objectList.get(4));//19kw
-            objectList1.add(objectList.get(19));//pc20
+            objectList1.add(objectList.get(7));//11单别
+            objectList1.add(objectList.get(8));//12单号
+            objectList1.add("Y");//13
+            objectList1.add("********************");//14
+            objectList1.add("##########");//15
+            objectList1.add("");//16
+            objectList1.add(objectList.get(2));//17pm
+            objectList1.add(objectList.get(3));//18gg
+            objectList1.add(objectList.get(17));//19dw
+            objectList1.add(objectList.get(4));//20kw
+            objectList1.add(objectList.get(19));//pc21
             SharedPreferences sp = getSharedPreferences(
                     "config", Activity.MODE_PRIVATE);
 
             String name = sp.getString("name", null);
-            objectList1.add(name);//[21]操作人员
+            objectList1.add(name);//[22]操作人员
             shjy.add(objectList1);
 
             //0 工作中心,1 品号,2 品名,3 规格,4入库库位,5 预计产量,6 已完工量,'完工数量' 手动输入,7 工单单别
@@ -313,7 +313,7 @@ public class BjrkActivity extends AppCompatActivity {
                 List<Object> objectList2 = new ArrayList<>();
                 objectList2.add("5403");//0
                 objectList2.add("11");//1
-                objectList2.add(objectList.get(0));//2;
+                objectList2.add(objectList.get(0));//2工作中心  ;
                 objectList2.add("");//3
                 objectList2.add("54");//4
                 objectList2.add(etBm.getText().toString());//手动输入5
