@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        style="@style/layout1"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="6"
+            android:gravity="center_vertical"
+            android:text="客户编号"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_customer_id"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:gravity="center_vertical"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+    <LinearLayout
+        style="@style/layout2"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="6"
+            android:gravity="center_vertical"
+            android:text="出货通知单别"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_chtzdb"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:gravity="center_vertical"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout1"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="6"
+            android:gravity="center_vertical"
+            android:text="出货通知单号"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_chtzdh"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:gravity="center_vertical"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</LinearLayout>

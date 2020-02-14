@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        style="@style/layout1"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="检  验  项"
+            android:textColor="#656565"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/dialog_jyx"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:maxLength="7"
+            android:paddingLeft="15dp"
+            android:paddingRight="10dp"
+            android:textColor="#656565"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout1"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/dialog_spsl_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="数        量"
+            android:textColor="#656565"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/dialog_sl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:imeOptions="actionNext"
+            android:inputType="numberDecimal"
+            android:nextFocusForward="@+id/dialog_bhgyy"
+            android:paddingLeft="15dp"
+            android:paddingRight="10dp"
+            android:textColor="#656565"
+            android:textCursorDrawable="@drawable/cursor"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="备        注"
+            android:textColor="#656565"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/dialog_bhgyy"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_edit"
+            android:cursorVisible="true"
+            android:gravity="left"
+            android:hint="请填写备注！"
+            android:inputType="textMultiLine"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:paddingTop="6dp"
+            android:textColor="#656565"
+            android:textCursorDrawable="@drawable/cursor"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+</LinearLayout>

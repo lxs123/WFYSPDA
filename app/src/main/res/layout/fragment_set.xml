@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_user"
+    android:orientation="vertical">
+
+    <!--    <LinearLayout
+            style="@style/layout2"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical">-->
+    <LinearLayout
+        style="@style/layout1"
+        android:layout_marginTop="10dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center">
+
+        <TextView
+            style="@style/TextView2"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:text="自动清除数据" />
+
+        <ToggleButton
+            android:id="@+id/mTogBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:button="@drawable/checkbox_iphone2"
+            android:checked="false"
+            android:text=""
+            android:textOff=""
+            android:textOn="" />
+
+    </LinearLayout>
+    <!--    <LinearLayout
+            style="@style/layout2"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical">-->
+    <LinearLayout
+        style="@style/layout1"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center">
+
+        <TextView
+            style="@style/TextView2"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:text="记录登录信息" />
+
+        <ToggleButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:button="@drawable/checkbox_iphone2"
+            android:checked="true"
+            android:text=""
+            android:textOff=""
+            android:textOn="" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout1"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical">
+
+
+        <Button
+            android:id="@+id/btxx"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="10dp"
+            android:layout_weight="9"
+            android:background="@drawable/bt_nobgd"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:text="重新设置密码"
+            android:textColor="@color/ziti"
+            android:textSize="16sp" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+
+            android:layout_alignParentRight="true"
+
+            android:layout_marginRight="12dp"
+            android:src="@mipmap/expand" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout1"
+        android:layout_marginTop="10dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/setting_wifi_print"
+            style="@style/TextView2"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:text="wifi打印机" />
+
+        <ToggleButton
+            android:id="@+id/togbtn_wifi_print"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:button="@drawable/checkbox_iphone2"
+            android:checked="false"
+            android:text=""
+            android:textOff=""
+            android:textOn="" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout1"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/setting_bluetooth_print"
+            style="@style/TextView2"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:text="蓝牙打印机" />
+
+        <ToggleButton
+            android:id="@+id/togbtn_blue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:button="@drawable/checkbox_iphone2"
+            android:checked="false"
+            android:text=""
+            android:textOff=""
+            android:textOn="" />
+
+    </LinearLayout>
+</LinearLayout>

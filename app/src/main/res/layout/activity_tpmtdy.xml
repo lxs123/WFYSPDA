@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@color/background_user"
+    tools:context=".Activity.TransferPackage.TpmtdyActivity"
+    >
+
+    <FrameLayout android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/mp.theme.dark_blue.background"
+        android:orientation="horizontal"
+        xmlns:android="http://schemas.android.com/apk/res/android" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="托盘唛头打印"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/left"
+            android:layout_marginLeft="1dp"
+            android:src="@drawable/fanhui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </FrameLayout>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_user"
+        >
+
+        <LinearLayout
+            android:id="@+id/bb"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:background="@color/background_user"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginBottom="65dp">
+            <LinearLayout
+                android:id="@+id/bq2"
+                style="@style/layout1">
+
+                <EditText
+                    android:id="@+id/et_value"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="12"
+                    android:background="@drawable/editview_border_input"
+                    android:cursorVisible="true"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:singleLine="true"
+                    android:hint="扫描箱唛头码"
+                    android:text=""
+                    android:textCursorDrawable="@null"></EditText>
+                <Button
+                    android:id="@+id/del1"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center"
+                    android:layout_margin="3dp"
+                    android:background="@mipmap/camera"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="xiangji"
+                    android:textColor="@color/white" />
+                <!--
+                <RelativeLayout
+                    android:id="@+id/rl_query"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="3dp"
+                    android:background="@mipmap/query"
+                    android:gravity="center"
+                    android:clickable="true">
+                </RelativeLayout>
+                -->
+            </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:layout_marginTop="5dp"
+                android:id="@+id/recycler_id"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="1"
+            android:background="@color/button"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_submit"
+                style="@style/button"
+                android:text="生成托盘唛头码" />
+            <!-- <Button
+                 style="@style/button"
+                 android:text="取消" />-->
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>
+

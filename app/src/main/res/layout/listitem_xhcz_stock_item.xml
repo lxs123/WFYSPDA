@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        style="@style/layout2"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:text="箱/托"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_mz"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:gravity="center_vertical"
+            android:layout_marginRight="2dp"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+    <LinearLayout
+        style="@style/layout1"
+        android:visibility="visible">
+
+        <LinearLayout
+            style="@style/layout1"
+            android:layout_weight="1"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:gravity="center_vertical"
+                android:paddingRight="11dp"
+                android:text="仓库"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_ck"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/layout1"
+            android:layout_weight="1"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:paddingRight="15dp"
+                android:text="库位"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_kw"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout1"
+        android:visibility="visible">
+
+        <LinearLayout
+            style="@style/layout1"
+            android:layout_weight="1"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:gravity="center_vertical"
+                android:paddingRight="11dp"
+                android:text="日期"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_rq"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/layout1"
+            android:layout_weight="1"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:paddingRight="15dp"
+                android:text="剩余量"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_sl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+<!--
+    <LinearLayout
+        style="@style/layout1"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="4"
+            android:gravity="center_vertical"
+            android:text="库存数量"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_yjchl"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:gravity="center_vertical"
+            android:layout_marginRight="2dp"
+            android:textSize="16sp" />
+
+    </LinearLayout>-->
+    <LinearLayout
+        style="@style/layout1"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:text="销货量"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_ppl"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:gravity="center_vertical"
+            android:text="0"
+            android:textSize="16sp" />
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/btn_add"
+            android:layout_weight="4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
+            android:layout_marginBottom="10dp"
+            android:text="扫描"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@drawable/login_button_selector_shape"
+            />
+        <LinearLayout
+            android:id="@+id/ll_sd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/img_wc"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center"
+                android:layout_margin="3dp"
+                android:layout_marginRight="5dp"
+                android:src="@mipmap/sd" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:gravity="center_vertical"
+                android:text="锁定"
+                android:layout_marginRight="5dp"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

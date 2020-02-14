@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@color/background_user"
+    tools:context="com.cubertech.bhpda.Activity.TransferPackage.ZjActivity"
+    >
+
+    <FrameLayout android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/mp.theme.dark_blue.background"
+        android:orientation="horizontal"
+        xmlns:android="http://schemas.android.com/apk/res/android" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="关联关系建立"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/left"
+            android:layout_marginLeft="1dp"
+            android:src="@drawable/fanhui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </FrameLayout>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_user"
+        >
+
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_weight="1"
+            android:layout_marginBottom="60dp">
+
+            <LinearLayout
+                android:id="@+id/bb"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/top"
+                android:layout_gravity="center_horizontal|top"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/tmsm"
+                    android:visibility="gone"
+                    style="@style/layout1">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="5"
+                        android:gravity="center_vertical"
+                        android:text="工单信息"
+                        android:textSize="17sp" />
+
+                    <EditText
+                        android:id="@+id/et_gd"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        android:layout_weight="12"
+                        android:background="@drawable/editview_border"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="工单信息"
+                        android:imeOptions="actionDone"
+                        android:maxLines="1"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textCursorDrawable="@null"
+                        ></EditText>
+
+                    <RelativeLayout
+                        android:id="@+id/del1"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="3dp"
+                        android:background="@mipmap/camera"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:onClick="clearRFID1"></RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout style="@style/layout1"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="工艺名称"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tv_gy"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:gravity="center_vertical"
+                        android:textSize="17sp" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/layout2">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="5"
+                        android:gravity="center_vertical"
+                        android:text="主件条码"
+                        android:textSize="17sp" />
+
+                    <EditText
+                        android:id="@+id/et_zj"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        android:layout_weight="12"
+                        android:background="@drawable/editview_border"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="主件条码"
+                        android:imeOptions="actionDone"
+                        android:maxLines="1"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textCursorDrawable="@null"/>
+
+                    <RelativeLayout
+                        android:id="@+id/del1d"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="3dp"
+                        android:background="@mipmap/ic_delete"
+                        android:clickable="true"
+                        android:gravity="center"
+                       />
+                </LinearLayout>
+
+                <LinearLayout style="@style/layout1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="主件品号"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tv_zj_ph"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:gravity="center_vertical"
+                        android:textSize="17sp" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/layout1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="主件品名"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tv_zj_pm"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:gravity="center_vertical"
+                        android:textSize="17sp" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/layout1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="主件规格"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tv_zj_gg"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:gravity="center_vertical"
+                        android:textSize="17sp" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/layout2">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="5"
+                        android:gravity="center_vertical"
+                        android:text="元件条码"
+                        android:textSize="17sp" />
+
+                    <EditText
+                        android:id="@+id/et_yj"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        android:layout_weight="12"
+                        android:background="@drawable/editview_border"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="元件条码"
+                        android:imeOptions="actionDone"
+                        android:maxLines="1"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textCursorDrawable="@null"/>
+
+                    <RelativeLayout
+                        android:id="@+id/del1dd"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="3dp"
+                        android:background="@mipmap/ic_delete"
+                        android:clickable="true"
+                        android:gravity="center"
+                       />
+                </LinearLayout>
+                <LinearLayout style="@style/layout1"
+                    android:layout_height="wrap_content">
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/recycler_b_id"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                    </android.support.v7.widget.RecyclerView>
+                </LinearLayout>
+
+
+                <!--隐藏 -->
+                <LinearLayout style="@style/layout2"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="元件品号"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tv_zj_zjph"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:gravity="center_vertical"
+                        android:textSize="17sp" />
+                </LinearLayout>
+                <!--隐藏 -->
+                <LinearLayout style="@style/layout1"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="元件品名"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:gravity="center_vertical"
+                        android:textSize="17sp" />
+                </LinearLayout>
+                <!--隐藏 -->
+                <LinearLayout style="@style/layout1"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="元件规格"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tv_zj_zjgg"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:gravity="center_vertical"
+                        android:textSize="17sp" />
+                </LinearLayout>
+
+                <!--隐藏人员条码 机器条码 班组条码-->
+                <LinearLayout style="@style/layout1"
+                    android:visibility="gone">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="5"
+                        android:gravity="center_vertical"
+                        android:text="人员条码"
+                        android:textSize="17sp" />
+
+                    <EditText
+                        android:id="@+id/et_ry"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        android:layout_weight="12"
+                        android:background="@drawable/editview_border"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="人员条码"
+                        android:imeOptions="actionDone"
+                        android:maxLines="1"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textCursorDrawable="@null"></EditText>
+
+                    <RelativeLayout
+                        android:id="@+id/del1dd3"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="3dp"
+                        android:background="@mipmap/camera"
+                        android:clickable="true"
+                        android:gravity="center"></RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout style="@style/layout1"
+                    android:visibility="gone">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="5"
+                        android:gravity="center_vertical"
+                        android:text="机器条码"
+                        android:textSize="17sp" />
+
+                    <EditText
+                        android:id="@+id/et_jq"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        android:layout_weight="12"
+                        android:background="@drawable/editview_border"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="机器条码"
+                        android:imeOptions="actionDone"
+                        android:maxLines="1"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textCursorDrawable="@null"></EditText>
+
+                    <RelativeLayout
+                        android:id="@+id/del1dd33"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="3dp"
+                        android:background="@mipmap/camera"
+                        android:clickable="true"
+                        android:gravity="center"></RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout style="@style/layout1"
+                    android:visibility="gone">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="5"
+                        android:gravity="center_vertical"
+                        android:text="班组条码"
+                        android:textSize="17sp" />
+
+                    <EditText
+                        android:id="@+id/et_bz"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        android:layout_weight="12"
+                        android:background="@drawable/editview_border"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="班组条码"
+                        android:imeOptions="actionDone"
+                        android:maxLines="1"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textCursorDrawable="@null"></EditText>
+
+                    <RelativeLayout
+                        android:id="@+id/del1dd33444"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="3dp"
+                        android:background="@mipmap/camera"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:onClick="clearRFID1"></RelativeLayout>
+                </LinearLayout>
+                <!--隐藏人员条码 机器条码 班组条码-->
+
+                <LinearLayout style="@style/layout1"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="报工数量"
+                        android:textSize="17sp" />
+
+                    <EditText
+                        android:id="@+id/et_bgsl"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:gravity="center_vertical"
+                        android:inputType="number|numberSigned|numberDecimal"
+                        android:textSize="17sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/LinearLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="1"
+            android:background="@color/button"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_submit"
+                style="@style/button"
+                android:text="提交" />
+            <Button
+                android:id="@+id/btn_qx"
+                style="@style/button"
+                android:text="取消" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>
+

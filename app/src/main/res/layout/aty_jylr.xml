@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_user"
+    android:orientation="vertical">
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/mp.theme.dark_blue.background"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="检验录入"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:src="@drawable/fanhui" />
+
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/layout3">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="条盘编号:"
+                    android:textColor="#323232"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text=""
+                    android:textColor="#323232"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/layout3">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="批  次  号:"
+                    android:textColor="#323232"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text=""
+                    android:textColor="#323232"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/layout3">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="物  料  号:"
+                    android:textColor="#323232"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text=""
+                    android:textColor="#323232"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/layout3">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="规        格:"
+                    android:textColor="#323232"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text=""
+                    android:textColor="#323232"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/layout3">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="条盘重量:"
+                    android:textColor="#323232"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text=""
+                    android:textColor="#323232"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/layout3">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="入检日期:"
+                    android:textColor="#323232"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text=""
+                    android:textColor="#323232"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/layout3">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="条盘产地:"
+                    android:textColor="#323232"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text=""
+                    android:textColor="#323232"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/layout3">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="取样标记:"
+                    android:textColor="#323232"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text=""
+                    android:textColor="#323232"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/layout3">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="物料描述:"
+                    android:textColor="#323232"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text=""
+                    android:textColor="#323232"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/layout3">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="检        验:"
+                    android:textColor="#323232"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="10dp"
+                    android:paddingRight="10dp"
+
+                    android:text="合格" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:paddingRight="10dp"
+                    android:text="不合格" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/layout3">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="检  验  员:"
+                    android:textColor="#323232"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text=""
+                    android:textColor="#323232"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/button"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_submit"
+            style="@style/button"
+            android:text="扫卡" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            style="@style/button"
+            android:text="确定" />
+    </LinearLayout>
+</LinearLayout>

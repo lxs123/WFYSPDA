@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/listitem_xhcz"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="3dp"
+    android:paddingRight="3dp">
+
+    <LinearLayout
+        android:id="@+id/listitem_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_xhcz_item_bg"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+
+        <LinearLayout
+            style="@style/layout1"
+            android:background="@null"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:text="收货单号"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_shdh"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="12"
+                android:gravity="center_vertical"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/background_user" />
+        </FrameLayout>
+
+
+        <LinearLayout
+            style="@style/layout1"
+            android:layout_width="match_parent"
+            android:background="@null"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                style="@style/layout1"
+                android:layout_weight="1"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:gravity="center_vertical"
+                    android:paddingRight="20px"
+                    android:text="单        别"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_xc"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:gravity="center_vertical"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tmsm"
+                style="@style/layout1"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:gravity="center_vertical"
+                    android:paddingRight="20px"
+                    android:text="规        格"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_gg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:gravity="center_vertical"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/background_user" />
+        </FrameLayout>
+
+        <LinearLayout
+            style="@style/layout1"
+            android:background="@null"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:text="品        名"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_wlname"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="12"
+                android:gravity="center_vertical"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/background_user" />
+        </FrameLayout>
+
+        <LinearLayout
+            style="@style/layout1"
+            android:background="@null"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:text="供应商名称"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_gysname"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="12"
+                android:gravity="center_vertical"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/background_user" />
+        </FrameLayout>
+
+        <LinearLayout
+            style="@style/layout1"
+            android:background="@null"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:text="待验数量"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_dysl"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="12"
+                android:gravity="center_vertical"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/background_user" />
+        </FrameLayout>
+
+        <LinearLayout
+            style="@style/layout1"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:text="完成状态"
+                android:textSize="17sp" />
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="12">
+
+                <ImageView
+                    android:id="@+id/image_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:paddingRight="15dp"
+                    android:src="@mipmap/checkbox3_off" />
+            </FrameLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+    <!--加急-->
+    <FrameLayout
+        android:id="@+id/listitem_success"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:layout_marginRight="40dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_urgent"
+            android:visibility="visible" />
+    </FrameLayout>
+
+
+</FrameLayout>

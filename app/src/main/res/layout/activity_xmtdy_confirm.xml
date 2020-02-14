@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/mp.theme.dark_blue.background"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/dy_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="箱唛头码打印"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:clickable="true"
+            android:src="@drawable/fanhui" />
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/dm_code"
+        android:layout_width="350px"
+        android:layout_height="350px"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="150px"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/dm_code_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60px"
+        android:text="10011B-1-20180410-001"
+        android:textColor="#656565"
+        android:textSize="16sp" />
+  <!--  <TextView
+        android:id="@+id/dm_code_content1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60px"
+        android:text="10011B-1-20180410-001"
+        android:textColor="#656565"
+        android:textSize="16sp" />-->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:id="@+id/LinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/button"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_dy"
+            style="@style/button"
+            android:text="打印" />
+
+        <Button
+            android:id="@+id/btn_qx"
+            style="@style/button"
+            android:text="取消" />
+    </LinearLayout>
+
+</LinearLayout>

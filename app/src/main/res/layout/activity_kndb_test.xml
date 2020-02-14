@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_user"
+    android:orientation="vertical">
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/mp.theme.dark_blue.background"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="库内调拨"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:src="@drawable/fanhui" />
+
+    </FrameLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/tmsm"
+                style="@style/layout1"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="5"
+                    android:gravity="center_vertical"
+                    android:text="物  料  码"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_tm"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="15"
+                    android:background="@drawable/editview_border"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="物料码"
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textCursorDrawable="@null" />
+
+                <Button
+                    android:id="@+id/del1"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center"
+                    android:layout_margin="3dp"
+                    android:layout_weight="3"
+                    android:background="@mipmap/ic_delete"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout1"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="5"
+                    android:gravity="center_vertical"
+                    android:text="库  位  码"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_tm1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="15"
+                    android:background="@drawable/editview_border"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="库位码"
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textCursorDrawable="@null" />
+
+                <Button
+                    android:id="@+id/del2"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center"
+                    android:layout_margin="3dp"
+                    android:layout_weight="3"
+                    android:background="@mipmap/ic_delete"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout1"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="5"
+                    android:gravity="center_vertical"
+                    android:text="目的库位"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_tm2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="15"
+                    android:background="@drawable/editview_border"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="目的库位码"
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textCursorDrawable="@null" />
+
+                <Button
+                    android:id="@+id/del3"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center"
+                    android:layout_margin="3dp"
+                    android:layout_weight="3"
+                    android:background="@mipmap/ic_delete"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/kndb_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/LinearLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/button"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_ll"
+                style="@style/button"
+                android:text="提交" />
+
+            <Button
+                android:id="@+id/btn_qx"
+                style="@style/button"
+                android:text="取消" />
+        </LinearLayout>
+
+</LinearLayout>
+

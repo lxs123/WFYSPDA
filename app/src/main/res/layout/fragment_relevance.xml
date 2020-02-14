@@ -1,0 +1,89 @@
+<com.google.android.flexbox.FlexboxLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:flexWrap="wrap"
+    app:alignItems="center"
+    app:alignContent="flex_start"
+    app:flexDirection="row"
+    app:justifyContent="flex_start"
+    app:showDivider="beginning|middle" >
+
+    <LinearLayout
+        android:id="@+id/ly_glgxjl"
+        android:visibility="gone"
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_alignSelf="flex_start"
+        app:layout_flexBasisPercent="33%">
+
+        <LinearLayout
+            android:id="@+id/glgxjl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_selector"
+            android:gravity="center"
+            android:clickable="true"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="15dp"
+                android:background="@mipmap/ic_glgxjl" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:text="关联关系建立"
+                android:textColor="#323232"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ly_yjcx"
+        android:visibility="gone"
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_alignSelf="flex_start"
+        app:layout_flexBasisPercent="33%">
+        <LinearLayout
+            android:id="@+id/yjcx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_selector"
+            android:gravity="center"
+            android:clickable="true"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="15dp"
+                android:background="@mipmap/ic_yjcx" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:text="元件查询"
+                android:textColor="#323232"
+                android:textSize="18sp"
+               />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.flexbox.FlexboxLayout>

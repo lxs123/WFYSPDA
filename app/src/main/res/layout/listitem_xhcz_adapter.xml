@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/listitem_xhcz"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="3dp"
+    android:paddingRight="3dp">
+
+    <LinearLayout
+        android:id="@+id/listitem_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:padding="5dp"
+        android:background="@drawable/shape_xhcz_item_bg"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            style="@style/layout1"
+            android:focusable="true"
+            android:background="@null"
+            android:focusableInTouchMode="true">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="6"
+                android:gravity="center_vertical"
+                android:text="通知单号"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_chtzddh"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="12"
+                android:gravity="center_vertical"
+                android:textSize="16sp" />
+        </LinearLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/background_user" />
+        </FrameLayout>
+
+
+        <LinearLayout
+            style="@style/layout1"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/tmsm"
+                style="@style/layout1"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:gravity="center_vertical"
+                    android:text="通知单别"
+                    android:paddingRight="20px"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_chtzddb"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:gravity="center_vertical"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout1"
+                android:layout_weight="1"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:gravity="center_vertical"
+                    android:text="客户编号"
+                    android:paddingRight="20px"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_khid"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:gravity="center_vertical"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/background_user" />
+        </FrameLayout>
+
+        <LinearLayout
+            style="@style/layout1"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:background="@null">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="4"
+                android:gravity="center_vertical"
+                android:text="客户名称"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_khname"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="12"
+                android:gravity="center_vertical"
+                android:textSize="16sp" />
+        </LinearLayout>
+        <!--<LinearLayout-->
+        <!--style="@style/layout1"-->
+        <!--android:visibility="visible">-->
+
+        <!--<TextView-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginLeft="15dp"-->
+        <!--android:layout_weight="6"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:text="订单单号"-->
+        <!--android:textSize="16sp" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/tv_dddh"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="12"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:textSize="16sp" />-->
+
+        <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+        <!--style="@style/layout1"-->
+        <!--android:visibility="visible">-->
+
+        <!--<TextView-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginLeft="15dp"-->
+        <!--android:layout_weight="6"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:text="订单序号"-->
+        <!--android:textSize="16sp" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/tv_ddxh"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="12"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:textSize="16sp" />-->
+
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+        <!--style="@style/layout1"-->
+        <!--android:visibility="visible">-->
+
+        <!--<TextView-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginLeft="15dp"-->
+        <!--android:layout_weight="6"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:text="产品品号"-->
+        <!--android:textSize="16sp" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/tv_ph"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="12"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:textSize="16sp" />-->
+
+        <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+        <!--style="@style/layout1"-->
+        <!--android:visibility="visible">-->
+
+        <!--<TextView-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginLeft="15dp"-->
+        <!--android:layout_weight="6"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:text="产品品名"-->
+        <!--android:textSize="16sp" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/tv_pm"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="12"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:textSize="16sp" />-->
+
+        <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+        <!--style="@style/layout1"-->
+        <!--android:visibility="visible">-->
+
+        <!--<TextView-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginLeft="15dp"-->
+        <!--android:layout_weight="6"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:text="产品规格"-->
+        <!--android:textSize="16sp" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/tv_gg"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="12"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:textSize="16sp" />-->
+
+        <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+        <!--style="@style/layout1"-->
+        <!--android:visibility="visible">-->
+
+        <!--<TextView-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginLeft="15dp"-->
+        <!--android:layout_weight="6"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:text="预计销货数量"-->
+        <!--android:textSize="16sp" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/tv_yjxhsl"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="12"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:textSize="16sp" />-->
+
+        <!--</LinearLayout>-->
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/listitem_success"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:layout_marginRight="40dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_xh_success"
+            android:visibility="visible" />
+    </FrameLayout>
+
+
+</FrameLayout>

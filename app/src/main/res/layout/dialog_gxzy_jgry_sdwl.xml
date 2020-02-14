@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_user"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingBottom="15dp"
+        android:paddingLeft="25dp"
+        android:paddingTop="15dp"
+        android:text="添加人员"
+        android:textColor="#33b4e4"
+        android:textSize="20sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#33b4e4" />
+
+
+    <LinearLayout
+        android:id="@+id/tmsm"
+        style="@style/layout1"
+        android:layout_height="48dp"
+        android:layout_marginTop="0dp"
+        android:paddingRight="20dp">
+
+
+        <EditText
+            android:id="@+id/et_tm"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="15"
+            android:background="@null"
+            android:ems="10"
+            android:gravity="left|center_vertical"
+            android:hint="人员编码"
+            android:imeOptions="actionDone"
+            android:maxLines="1"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:singleLine="true"
+            android:text=""
+            android:textColorHint="#8f8f8f"
+            android:textCursorDrawable="@null"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/del1"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:layout_margin="3dp"
+            android:layout_weight="3"
+            android:background="@mipmap/ic_delete"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="xiangji1"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout1"
+        android:layout_height="48dp"
+        android:layout_marginTop="1px">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="5"
+            android:gravity="center_vertical"
+            android:text="加工人员"
+            android:textSize="17sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_jgry_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:gravity="center_vertical"
+            android:hint="人员姓名"
+            android:paddingLeft="25dp"
+            android:textColorHint="#8f8f8f"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout1"
+        android:layout_height="48dp"
+        android:layout_marginTop="1px">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25dp"
+            android:layout_weight="5"
+            android:gravity="center_vertical"
+            android:text="合格数量"
+            android:textColor="#656565"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/pick_jgry_num"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:background="@null"
+            android:hint="请填写合格数量"
+            android:imeOptions="actionNext"
+            android:inputType="numberDecimal"
+            android:nextFocusForward="@+id/pick_jgry_scrap_num"
+            android:singleLine="true"
+            android:textCursorDrawable="@drawable/color_cursor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout1"
+        android:layout_height="48dp"
+        android:layout_marginTop="1px">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25dp"
+            android:layout_weight="5"
+            android:gravity="center_vertical"
+            android:text="报废数量"
+            android:textColor="#656565"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/pick_jgry_scrap_num"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:background="@null"
+            android:hint="请填写报废数量"
+            android:imeOptions="actionNext"
+            android:inputType="numberDecimal"
+            android:nextFocusForward="@+id/pick_jgry_repair_num"
+            android:singleLine="true"
+            android:textCursorDrawable="@drawable/color_cursor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout1"
+        android:layout_height="48dp"
+        android:layout_marginTop="1px">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25dp"
+            android:layout_weight="5"
+            android:gravity="center_vertical"
+            android:text="返修数量"
+            android:textColor="#656565"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/pick_jgry_repair_num"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:background="@null"
+
+            android:hint="请填写返修数量"
+            android:imeOptions="actionNext"
+            android:inputType="numberDecimal"
+            android:nextFocusForward="@+id/pick_jgry_note"
+            android:textCursorDrawable="@drawable/color_cursor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout1"
+        android:layout_height="48dp"
+        android:layout_marginTop="1px">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25dp"
+            android:layout_weight="5"
+            android:gravity="center_vertical"
+            android:text="备        注"
+            android:textColor="#656565"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/pick_jgry_note"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:background="@null"
+            android:hint="请备注原因"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:textCursorDrawable="@drawable/color_cursor" />
+        <!--<com.cubertech.bhpda.view.PickerView-->
+        <!---->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="12"-->
+        <!--android:gravity="center_vertical" />-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1px"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_jgry_add"
+            style="@style/button"
+            android:layout_width="match_parent"
+            android:layout_marginRight="1px"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:text="添加"
+            android:textColor="#323232"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_jgry_cancel"
+            style="@style/button"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:text="关闭"
+            android:textColor="#323232"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+</LinearLayout>

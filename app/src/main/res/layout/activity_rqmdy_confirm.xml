@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_user"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/mp.theme.dark_blue.background"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="不合格证打印"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:clickable="true"
+            android:src="@drawable/fanhui" />
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/dm_code"
+        android:layout_width="350px"
+        android:layout_height="350px"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="150px"
+        android:scaleType="fitCenter"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/dm_code_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60px"
+        android:text="10011B-1-20180410-001"
+        android:textColor="#656565"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
+    <LinearLayout style="@style/layout1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="5"
+            android:gravity="center_vertical"
+            android:text="物料名称"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tv_wlmc"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/layout1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="5"
+            android:gravity="center_vertical"
+            android:text="制造单位"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tv_zadw"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/layout1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="5"
+            android:gravity="center_vertical"
+            android:text="检验日期"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tv_jyrq"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/layout1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="5"
+            android:gravity="center_vertical"
+            android:text="检验人员"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tv_jyry"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/layout2">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="不良检验项"
+            android:textSize="17sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="数量"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/bljyx_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+
+    <LinearLayout
+        android:id="@+id/LinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/button"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_dy"
+            style="@style/button"
+            android:text="打印" />
+
+        <Button
+            android:id="@+id/btn_qx"
+            style="@style/button"
+            android:text="取消" />
+    </LinearLayout>
+
+</LinearLayout>

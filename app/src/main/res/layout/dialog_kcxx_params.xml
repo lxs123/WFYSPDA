@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        style="@style/layout1"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="指定批次"
+            android:textColor="#656565"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/dialog_pc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:textCursorDrawable="@drawable/cursor"
+            android:gravity="center_vertical"
+            android:hint="请输入指定批次"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:nextFocusForward="@+id/dialog_kw"
+            android:paddingLeft="15dp"
+            android:paddingRight="10dp"
+            android:textColor="#656565"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout1"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/dialog_spsl_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="指定库位"
+            android:textColor="#656565"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/dialog_kw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="请输入指定库位"
+            android:textCursorDrawable="@drawable/cursor"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:nextFocusForward="@+id/dialog_sl"
+            android:paddingLeft="15dp"
+            android:paddingRight="10dp"
+            android:textColor="#656565"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout1"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="匹配数量"
+            android:textColor="#656565"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/dialog_sl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="请输入匹配数量"
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal"
+            android:paddingLeft="15dp"
+            android:textCursorDrawable="@drawable/cursor"
+            android:paddingRight="10dp"
+            android:textColor="#656565"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dialog_delete_content"
+        style="@style/layout1"
+        android:gravity="center_vertical|right"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/dialog_delete"
+            style="@style/button"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0"
+            android:text="删除"
+            android:textSize="15sp" />
+    </LinearLayout>
+</LinearLayout>

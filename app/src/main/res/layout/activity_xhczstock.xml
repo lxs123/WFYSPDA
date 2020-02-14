@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_user"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/mp.theme.dark_blue.background"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="销货扫描"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:src="@drawable/fanhui" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/mp.theme.dark_blue.background"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true">
+
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <CheckBox
+                android:id="@+id/cb_xjxc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textColor="#bff8ff"
+                android:textSize="14sp"
+                android:checked="true"
+                android:text="先进先出"/>
+
+           <!-- <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:text="先进先出"
+                android:textColor="#bff8ff"
+                android:textSize="14sp" />-->
+
+            <!--<LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/ck_Offline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="#f1fdfe"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:text="是"/>
+            </LinearLayout>-->
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/bq2"
+        style="@style/layout1">
+
+        <EditText
+            android:id="@+id/et_value"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="12"
+            android:background="@drawable/editview_border_input"
+            android:cursorVisible="true"
+            android:ems="10"
+            android:gravity="center"
+            android:imeOptions="actionDone"
+            android:maxLines="1"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:singleLine="true"
+            android:hint="扫描唛头码"
+            android:text=""
+            android:textCursorDrawable="@null"></EditText>
+
+        <Button
+            android:id="@+id/del1"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:layout_margin="3dp"
+            android:background="@mipmap/camera"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="xiangji"
+            android:textColor="@color/white" />
+        <!--
+        <RelativeLayout
+            android:id="@+id/rl_query"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentRight="true"
+            android:layout_margin="3dp"
+            android:background="@mipmap/query"
+            android:gravity="center"
+            android:clickable="true">
+        </RelativeLayout>
+        -->
+    </LinearLayout>
+   <!-- <LinearLayout
+        style="@style/layout1"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="6"
+            android:gravity="center_vertical"
+            android:text="预计出货量"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_yjsl"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:text="0"/>
+
+    </LinearLayout>
+    <LinearLayout
+        style="@style/layout1"
+        android:visibility="visible"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="6"
+            android:gravity="center_vertical"
+            android:text="已选数量"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_yxsl"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:text="0"/>
+
+    </LinearLayout>-->
+
+    <LinearLayout
+        style="@style/layout1"
+        android:visibility="visible">
+
+        <LinearLayout
+            style="@style/layout1"
+            android:layout_weight="1"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:gravity="center_vertical"
+                android:paddingRight="15dp"
+                android:text="预计量"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_yjl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="0"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/layout1"
+            android:layout_weight="1"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:paddingRight="15dp"
+                android:text="销货量"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_ppsl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="0"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/xhcz_stock_list"
+        android:layout_marginTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:divider="@color/white"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/LinearLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/button"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_submit"
+            style="@style/button"
+            android:text="确定" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            style="@style/button"
+            android:text="取消" />
+    </LinearLayout>
+</LinearLayout>

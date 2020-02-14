@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <View
+        android:id="@+id/icon"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="10dp"
+        android:background="@mipmap/ic_launcher"
+        android:text="名称" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="名称"
+        android:textColor="#333333" />
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="地址"
+        android:textColor="#333333" />
+
+    <TextView
+        android:id="@+id/start"
+        android:layout_width="85dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_print"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="非打印设备"
+        android:textColor="#666666"
+        android:textSize="14sp" />
+</LinearLayout>

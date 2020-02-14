@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.MainActivity"
+    android:fitsSystemWindows="true"
+    >
+    <android.support.v7.widget.Toolbar
+        xmlns:toolbar="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        toolbar:titleTextAppearance="@style/MP.Theme.TextAppearance.Light.Toolbar.Title"
+        toolbar:title="工序转移">
+        <LinearLayout
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="end"
+            >
+            <Button
+                android:id="@+id/button_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/out" />
+        </LinearLayout>
+
+        <include layout="@layout/layout_main_custom_toolbar" />
+
+        <!--<RadioGroup-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_gravity="end"-->
+            <!--&gt;-->
+            <!--<RadioButton-->
+                <!--android:id="@+id/radio1"-->
+                <!--android:visibility="visible"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="?attr/selectableItemBackgroundBorderless"-->
+                <!--android:button="@drawable/selector_main_nav_process"-->
+                <!--tools:button="@mipmap/process_check"-->
+                <!--tools:checked="true" />-->
+
+
+            <!--<RadioButton-->
+                <!--android:id="@+id/radio2"-->
+                <!--android:visibility="visible"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="?attr/selectableItemBackgroundBorderless"-->
+                <!--android:button="@drawable/selector_main_nav_play_list"-->
+                <!--tools:button="@mipmap/bind" />-->
+            <!--<RadioButton-->
+                <!--android:id="@+id/radio3"-->
+                <!--android:visibility="visible"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="?attr/selectableItemBackgroundBorderless"-->
+                <!--android:button="@drawable/selector_main_nav_storage"-->
+                <!--tools:button="@mipmap/storage" />-->
+            <!--<RadioButton-->
+                <!--android:id="@+id/radio4"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="?attr/selectableItemBackgroundBorderless"-->
+                <!--android:button="@drawable/selector_main_nav_set"-->
+                <!--tools:button="@mipmap/set"-->
+                <!--/>-->
+        <!--</RadioGroup>-->
+
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        />
+
+</RelativeLayout>

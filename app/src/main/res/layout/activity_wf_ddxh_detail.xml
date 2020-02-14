@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_user"
+    android:orientation="vertical">
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/mp.theme.dark_blue.background"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="订单销货"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="1dp"
+            android:src="@drawable/fanhui" />
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/layout1"
+            android:layout_width="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:text="出货通知单"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tv_ll_gddh"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="12"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/layout1"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:text="项目编号"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tv_ll_xmh"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="12"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/layout1"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:text="客户编号"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tv_ll_khbh"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="12"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/ll_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/LinearLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/button"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_ll"
+            style="@style/button"
+            android:text="销货" />
+
+        <Button
+            android:id="@+id/btn_qx"
+            style="@style/button"
+            android:text="取消" />
+    </LinearLayout>
+
+
+</LinearLayout>
+
