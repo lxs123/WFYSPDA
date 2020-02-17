@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.HardwarePropertiesManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -26,7 +25,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.cubertech.bhpda.Activity.wfys.wgrk.OtherWgrkActivity;
 import com.cubertech.bhpda.R;
 import com.cubertech.bhpda.connect.retrofits.ServiceUtils;
 import com.cubertech.bhpda.utils.CommonUtil;
@@ -131,6 +129,7 @@ public class BjrkActivity extends AppCompatActivity {
                 if (!isEquest) {
                     objectList.add("0");
                     objectList.add("");//pc
+                    objectList.add("");//kw
                     list.add(objectList);
                     adapter.setList(list);
                 }
@@ -263,7 +262,7 @@ public class BjrkActivity extends AppCompatActivity {
             objectList1.add(objectList.get(2));//17pm
             objectList1.add(objectList.get(3));//18gg
             objectList1.add(objectList.get(17));//19dw
-            objectList1.add(objectList.get(4));//20kw
+            objectList1.add(objectList.get(20));//20kw
             objectList1.add(objectList.get(19));//pc21
             SharedPreferences sp = getSharedPreferences(
                     "config", Activity.MODE_PRIVATE);
@@ -377,6 +376,7 @@ public class BjrkActivity extends AppCompatActivity {
                 if (!isEquest) {
                     objectList.add("0");
                     objectList.add("");
+                    objectList.add("");//kw
                     BjrkActivity.this.list.add(objectList);
                     adapter.setList(BjrkActivity.this.list);
                 }
@@ -459,6 +459,7 @@ public class BjrkActivity extends AppCompatActivity {
 //            holder.tvSl.setText(String.valueOf(objectList.get(6)));
             holder.tvSl.setText(String.valueOf(objectList.get(18)));
             holder.etPc.setText(String.valueOf(objectList.get(19)));
+            holder.etKw.setText(String.valueOf(objectList.get(20)));
             etBm.setText(String.valueOf(objectList.get(15)));
             try {
                 double yjsl = Double.parseDouble(String.valueOf(objectList.get(5)));
@@ -539,6 +540,33 @@ public class BjrkActivity extends AppCompatActivity {
                     holder.etPc.requestFocus();
                 }
             });
+
+            holder.etKw.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+                    objectList.set(20, editable.toString());
+                    list.set(position, objectList);
+
+                }
+            });
+            holder.btnKwDel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    holder.etKw.setText("");
+                    holder.etKw.setSelection(0);
+                    holder.etKw.requestFocus();
+                }
+            });
         }
 
         @Override
@@ -569,6 +597,10 @@ public class BjrkActivity extends AppCompatActivity {
             EditText etPc;
             @BindView(R.id.list_bjrk_del)
             Button btnDel;
+            @BindView(R.id.et_kw)
+            EditText etKw;
+            @BindView(R.id.list_bjrk_del_kw)
+            Button btnKwDel;
 
             public ViewHolder(View itemView) {
                 super(itemView);
