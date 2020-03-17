@@ -817,6 +817,30 @@ public class DbLocalDataSource implements DbDataSource {
         db.close();
     }
 
+    /***
+     *    private final String DB;//单别
+     private final String DH;//单号    3
+     private final String XH;//序号4
+     private final String PH;//品号5
+     private final String PM;//规格6
+     private final String SL;//数量7
+     private final String BCKW;//拨出库位8
+     private final String BCCW;//拨出仓库9
+     private final String ISTM;//是否启用条码10
+
+     private final String GLCJ;//管理层级11
+     private final String BRKW;//拨入库位12
+     private final String BRCW;//拨入储位12
+     private final String PIH;//批号14
+
+     private final String BMBH;//部门编号15
+     private final String BMMC;//部门名称16
+     private final String GG;//规格17
+     private final String DW;//单位18
+     private final String KW;//库位
+     private final String STATE;//状态
+     * @param dbKjdbList
+     */
     @Override
     public void saveDbKjdb(@NonNull List<DbKjdb> dbKjdbList) {
         checkNotNull(dbKjdbList);
@@ -826,47 +850,53 @@ public class DbLocalDataSource implements DbDataSource {
             String sql = "insert into " + DbEntry.TABLE_NAME_KJDBD + "("
 //                    + DbEntry.COLUMN_NAME_ID + ","//表id
                     + DbEntry.COLUMN_NAME_KJDBD + "," //库间调拨单
-                    + DbEntry.COLUMN_NAME_QYBH + ","  //企业编号
-                    + DbEntry.COLUMN_NAME_YYJD + ","  //营业据点
-                    + DbEntry.COLUMN_NAME_ZDY + ","   //自定义
-                    + DbEntry.COLUMN_NAME_XC + ","    //项次
-                    + DbEntry.COLUMN_NAME_LJBH + ","  //料件编号
-                    + DbEntry.COLUMN_NAME_BCSL + ","  //拨出数量
-                    + DbEntry.COLUMN_NAME_BCKW + ","  //拨出库位
-                    + DbEntry.COLUMN_NAME_BCCW + ","  //拨出储位
-                    + DbEntry.COLUMN_NAME_BCPH + ","  //拨出批号
-                    + DbEntry.COLUMN_NAME_BRSL + ","  //拨入数量
-                    + DbEntry.COLUMN_NAME_BRKW + ","  //拨入库位
-                    + DbEntry.COLUMN_NAME_BRCW + ","  //拨入储位
-                    + DbEntry.COLUMN_NAME_BRPH + ","  //拨入批号
-                    + DbEntry.COLUMN_NAME_DBSL + ","       //调拨数量
-                    + DbEntry.COLUMN_NAME_MC + ","    //名称
-                    + DbEntry.COLUMN_NAME_GG + ","    //规格
-                    + DbEntry.COLUMN_NAME_DW + ","    //单位
+                    + DbEntry.COLUMN_NAME_DB + ","    //单别
+                    + DbEntry.COLUMN_NAME_DH + ","    //单号    3
+                    + DbEntry.COLUMN_NAME_XH + ","    //序号4
+                    + DbEntry.COLUMN_NAME_PH + ","    //品号5
+                    + DbEntry.COLUMN_NAME_PM + ","    //品名6
+                    + DbEntry.COLUMN_NAME_SL + ","    //数量7
+                    + DbEntry.COLUMN_NAME_BCKW + ","  //拨出库位8
+                    + DbEntry.COLUMN_NAME_BCCW + ","  //拨出仓库9
+                    + DbEntry.COLUMN_NAME_ISTM + ","  //是否启用条码10
+                    + DbEntry.COLUMN_NAME_GLCJ + ","  //管理层级11
+                    + DbEntry.COLUMN_NAME_BRKW + ","  //拨入库位12
+                    + DbEntry.COLUMN_NAME_BRCW + ","  //拨入储位12
+                    + DbEntry.COLUMN_NAME_PIH + ","   //批号14
+                    + DbEntry.COLUMN_NAME_BMBH + ","   //部门编号15
+                    + DbEntry.COLUMN_NAME_BMMC + ","   //部门名称16
+                    + DbEntry.COLUMN_NAME_GG + ","    //规格17
+                    + DbEntry.COLUMN_NAME_DW + ","    //单位18
+                    + DbEntry.COLUMN_NAME_KW + ","    //库位
+                    + DbEntry.COLUMN_NAME_BCSL + ","    //匹配数量
+                    + DbEntry.COLUMN_NAME_BRSL + ","
                     + DbEntry.COLUMN_NAME_STATE      //状态
-                    + ") " + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + ") " + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             SQLiteStatement stat = db.compileStatement(sql);  //预编译Sql语句避免重复解析Sql语句
             db.beginTransaction();  //开启事务
             for (DbKjdb dbdata : dbKjdbList) {
                 stat.bindString(1, dbdata.getKJDBD());//库间调拨单
-                stat.bindString(2, dbdata.getQYBH()); //企业编号
-                stat.bindString(3, dbdata.getYYJD()); //营业据点
-                stat.bindString(4, dbdata.getZDY());  //自定义
-                stat.bindString(5, dbdata.getXC());   //项次
-                stat.bindString(6, dbdata.getLJBH()); //料件编号
-                stat.bindString(7, dbdata.getBCSL()); //拨出数量
-                stat.bindString(8, dbdata.getBCKW()); //拨出库位
-                stat.bindString(9, dbdata.getBCCW()); //拨出储位
-                stat.bindString(10, dbdata.getBRPH());//拨出批号
-                stat.bindString(11, dbdata.getBRSL());//拨入数量
-                stat.bindString(12, dbdata.getBRKW());//拨入库位
-                stat.bindString(13, dbdata.getBRCW());//拨入储位
-                stat.bindString(14, dbdata.getBRPH());//拨入批号
-                stat.bindString(15, dbdata.getDBSL());//调拨数量
-                stat.bindString(16, dbdata.getMC());  //名称
-                stat.bindString(17, dbdata.getGG());  //规格
-                stat.bindString(18, dbdata.getDW());  //单位
-                stat.bindString(19, dbdata.getSTATE());//状态
+                stat.bindString(2, dbdata.getDB()); //单别
+                stat.bindString(3, dbdata.getDH()); //单号    3
+                stat.bindString(4, dbdata.getXH());  //序号4
+                stat.bindString(5, dbdata.getPH());   //品号5
+                stat.bindString(6, dbdata.getPM()); //品名6
+                stat.bindString(7, dbdata.getSL()); //数量7
+                stat.bindString(8, dbdata.getBCKW()); //拨出库位8
+                stat.bindString(9, dbdata.getBCCW()); //拨出仓库9
+                stat.bindString(10, dbdata.getISTM());//是否启用条码10
+                stat.bindString(11, dbdata.getGLCJ());//管理层级11
+                stat.bindString(12, dbdata.getBRKW());//拨入库位12
+                stat.bindString(13, dbdata.getBRCW());//拨入储位12
+                stat.bindString(14, dbdata.getPIH());//批号14
+                stat.bindString(15, dbdata.getBMBH()); //部门编号15
+                stat.bindString(16, dbdata.getBMMC());   //部门名称16
+                stat.bindString(17, dbdata.getGG());  //规格17
+                stat.bindString(18, dbdata.getDW());  //单位18
+                stat.bindString(19, dbdata.getKW());//库位19
+                stat.bindString(20, dbdata.getBCSL());//库位20
+                stat.bindString(21, dbdata.getBRSL());//库位20
+                stat.bindString(22, dbdata.getSTATE());//21状态
                 long result = stat.executeInsert();
                 if (result < 0) {
                     return;
@@ -894,26 +924,28 @@ public class DbLocalDataSource implements DbDataSource {
         List<DbKjdb> dbDatalist = new ArrayList<>();
         SQLiteDatabase db = mDbDbHelper.getReadableDatabase();
         String[] projection = {
-                DbEntry.COLUMN_NAME_KJDBD,//库间调拨单
-                DbEntry.COLUMN_NAME_QYBH, //企业编号
-                DbEntry.COLUMN_NAME_YYJD, //营业据点
-                DbEntry.COLUMN_NAME_ZDY,  //自定义
-                DbEntry.COLUMN_NAME_XC,   //项次
-                DbEntry.COLUMN_NAME_LJBH, //料件编号
-                DbEntry.COLUMN_NAME_BCSL, //拨出数量
-                DbEntry.COLUMN_NAME_BCKW, //拨出库位
-                DbEntry.COLUMN_NAME_BCCW, //拨出储位
-                DbEntry.COLUMN_NAME_BCPH, //拨出批号
-                DbEntry.COLUMN_NAME_BRSL, //拨入数量
-                DbEntry.COLUMN_NAME_BRKW, //拨入库位
-                DbEntry.COLUMN_NAME_BRCW, //拨入储位
-                DbEntry.COLUMN_NAME_BRPH, //拨入批号
-                DbEntry.COLUMN_NAME_DBSL,  //调拨数量
-                DbEntry.COLUMN_NAME_MC,   //名称
-                DbEntry.COLUMN_NAME_GG,   //规格
-                DbEntry.COLUMN_NAME_DW,   //单位
-
-                DbEntry.COLUMN_NAME_STATE//状态
+                DbEntry.COLUMN_NAME_KJDBD, //库间调拨单
+                DbEntry.COLUMN_NAME_DB,    //单别
+                DbEntry.COLUMN_NAME_DH,    //单号    3
+                DbEntry.COLUMN_NAME_XH,    //序号4
+                DbEntry.COLUMN_NAME_PH,    //品号5
+                DbEntry.COLUMN_NAME_PM,    //品名6
+                DbEntry.COLUMN_NAME_SL,    //数量7
+                DbEntry.COLUMN_NAME_BCKW,  //拨出库位8
+                DbEntry.COLUMN_NAME_BCCW,  //拨出仓库9
+                DbEntry.COLUMN_NAME_ISTM,  //是否启用条码10
+                DbEntry.COLUMN_NAME_GLCJ,  //管理层级11
+                DbEntry.COLUMN_NAME_BRKW,  //拨入库位12
+                DbEntry.COLUMN_NAME_BRCW,  //拨入储位12
+                DbEntry.COLUMN_NAME_PIH,   //批号14
+                DbEntry.COLUMN_NAME_BMBH,   //部门编号15
+                DbEntry.COLUMN_NAME_BMMC,   //部门名称16
+                DbEntry.COLUMN_NAME_GG,    //规格17
+                DbEntry.COLUMN_NAME_DW,    //单位18
+                DbEntry.COLUMN_NAME_KW,    //库位19
+                DbEntry.COLUMN_NAME_BCSL,
+                DbEntry.COLUMN_NAME_BRSL,
+                DbEntry.COLUMN_NAME_STATE
         };
 
         //通过库间调拨单号获取数据
@@ -927,27 +959,30 @@ public class DbLocalDataSource implements DbDataSource {
 
         if (c != null && c.getCount() > 0) {
             while (c.moveToNext()) {
-                String KJDBD = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_KJDBD));//库间调拨单
-                String QYBH = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_QYBH));//企业编号
-                String YYJD = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_YYJD));//营业据点
-                String ZDY = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_ZDY));//自定义
-                String XC = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_XC));//项次
-                String LJBH = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_LJBH));//料件编号
-                String BCSL = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_BCSL));//拨出数量
-                String BCKW = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_BCKW));//拨出库位
-                String BCCW = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_BCCW));//拨出储位
-                String BCPH = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_BCPH));//拨出批号
-                String BRSL = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_BRSL));//拨入数量
-                String BRKW = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_BRKW));//拨入库位
-                String BRCW = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_BRCW));//拨入储位
-                String BRPH = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_BRPH));//拨入批号
-                String MC = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_MC));//名称
-                String GG = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_GG));//规格
-                String DW = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_DW));//单位
-                String DBSL = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_DBSL));//调拨数量
-                String STATE = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_STATE));//调拨数量
-                DbKjdb dbKjdb = new DbKjdb(KJDBD, QYBH, YYJD, ZDY, XC, LJBH, BCSL, BCKW, BCCW, BCPH,
-                        BRSL, BRKW, BRCW, BRPH, DBSL, MC, GG, DW, STATE);
+                String KJDBD = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_KJDBD));  //库间调拨单
+                String DB = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_DB));    //单别
+                String dh = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_DH));    //单号    3
+                String xh = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_XH));      //序号4
+                String ph = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_PH));        //品号5
+                String pm = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_PM));    //品名6
+                String sl = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_SL));    //数量7
+                String BCKW = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_BCKW));    //拨出库位8
+                String BCCW = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_BCCW));    //拨出仓库9
+                String istm = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_ISTM));    //是否启用条码10
+                String glcj = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_GLCJ));    //管理层级11
+                String BRKW = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_BRKW));    //拨入库位12
+                String BRCW = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_BRCW));    //拨入储位12
+                String pih = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_PIH));    //批号14
+                String bmbh = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_BMBH));         //部门编号15
+                String bmmc = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_BMMC));         //部门名称16
+                String gg = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_GG));        //规格17
+                String dw = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_DW));    //单位18
+                String kw = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_KW));   //库位19
+                String bcsl = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_BCSL));
+                String brsl = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_BRSL));
+                String STATE = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_STATE));   //状态20
+                DbKjdb dbKjdb = new DbKjdb(KJDBD, DB, dh, xh, ph, pm, sl, BCKW, BCCW, istm,
+                        glcj, BRKW, BRCW, pih, bmbh, bmmc, gg, dw, kw, bcsl, brsl, STATE);
 
                 dbDatalist.add(dbKjdb);
 
@@ -1872,6 +1907,192 @@ public class DbLocalDataSource implements DbDataSource {
         String selection = DbEntry.COLUMN_NAME_LLDLS_ID + " = ?";
         String[] selectionArgs = {id};
         db.delete(DbEntry.TABLE_NAME_DDXH_ITEM, selection, selectionArgs);
+        db.close();
+    }
+
+    @Override
+    public void saveDbKjdbItem(@NonNull List<DbPickItem> dbPickList) {
+        checkNotNull(dbPickList);
+        SQLiteDatabase db = null;
+        try {
+            db = mDbDbHelper.getWritableDatabase();
+            String sql = "insert into " + DbEntry.TABLE_NAME_KJDB_ITEM + "("
+                    + DbEntry.COLUMN_NAME_LLDLS_ID + ","    //表id 9标识id 领料单号+ 料号+position  (lld+lh+position)
+                    + DbEntry.COLUMN_NAME_PH + ","    //[0]品号
+                    + DbEntry.COLUMN_NAME_PM + ","   //[1]品名
+                    + DbEntry.COLUMN_NAME_GG + ","   //[2]规格
+                    + DbEntry.COLUMN_NAME_CK + ","   //[3]仓库
+                    + DbEntry.COLUMN_NAME_KW + ","     //[4]库位
+                    + DbEntry.COLUMN_NAME_PC + ","   //[5]批次
+                    + DbEntry.COLUMN_NAME_DW + ","     //[6]单位
+                    + DbEntry.COLUMN_NAME_KCSL + ","     //[7]库存数量
+                    + DbEntry.COLUMN_NAME_TIME + ","     //[8]最后更新时间
+                    + DbEntry.COLUMN_NAME_STATE + ","     //[9] 状态码值
+                    + DbEntry.COLUMN_NAME_FLSL       //[10]发料数量
+                    + ") " + "values(?,?,?,?,?,?,?,?,?,?,?,?)";
+            SQLiteStatement stat = db.compileStatement(sql);  //预编译Sql语句避免重复解析Sql语句
+            db.beginTransaction();  //开启事务
+            for (DbPickItem dbdata : dbPickList) {
+                stat.bindString(1, dbdata.getID());    //表id 9标识id 领料单号+ 料号+position  (lld+lh+position)
+                stat.bindString(2, dbdata.getPH());    //[0]品号
+                stat.bindString(3, dbdata.getPM());    //[1]品名
+                stat.bindString(4, dbdata.getGG());    //[2]规格
+                stat.bindString(5, dbdata.getCK());    //[3]仓库
+                stat.bindString(6, dbdata.getKW());    //[4]库位
+                stat.bindString(7, dbdata.getPC());    //[5]批次
+                stat.bindString(8, dbdata.getDW());     //[6]单位
+                stat.bindString(9, dbdata.getKCSL());       //[7]库存数量
+                stat.bindString(10, dbdata.getTIME());    //[8]最后更新时间
+                stat.bindString(11, dbdata.getSTATE());  //[9] 状态码值
+                stat.bindString(12, dbdata.getFLSL());  //[10] 发料数量
+                long result = stat.executeInsert();
+                if (result < 0) {
+                    return;
+                }
+            }
+            db.setTransactionSuccessful();  //控制回滚，如果不设置此项自动回滚
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        } finally {
+            try {
+                if (null != db) {
+                    db.endTransaction();  //事务提交
+                    db.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return;
+    }
+
+    @Override
+    public void getDbKjdbListItem(@Nullable String id, GetDbPickItemCallback callback) {
+        List<DbPickItem> dbDatalist = new ArrayList<>();
+        SQLiteDatabase db = mDbDbHelper.getReadableDatabase();
+        String[] projection = {
+                DbEntry.COLUMN_NAME_LLDLS_ID,      //表id 9标识id 领料单号+ 料号+position  (lld+lh+position)
+                DbEntry.COLUMN_NAME_PH,       //[0]品号
+                DbEntry.COLUMN_NAME_PM,       //[1]品名
+                DbEntry.COLUMN_NAME_GG,       //[2]规格
+                DbEntry.COLUMN_NAME_CK,         //[3]仓库
+                DbEntry.COLUMN_NAME_KW,       //[4]库位
+                DbEntry.COLUMN_NAME_PC,       //[5]批次
+                DbEntry.COLUMN_NAME_DW,        //[6]单位
+                DbEntry.COLUMN_NAME_KCSL,        //[7]库存数量
+                DbEntry.COLUMN_NAME_TIME,    //[8]最后更新时间
+                DbEntry.COLUMN_NAME_STATE,//[9] 状态码值
+                DbEntry.COLUMN_NAME_FLSL,
+        };
+
+        //通过库间调拨单号获取数据
+        String selection = DbEntry.COLUMN_NAME_LLDLS_ID + " LIKE ?";
+        String[] selectionArgs = {id};
+
+        Cursor c = db.query(
+                DbEntry.TABLE_NAME_KJDB_ITEM, projection, selection, selectionArgs, null, null, DbEntry.COLUMN_NAME_LLDLS_ID + " desc", null);
+        /*Cursor c = db.query(
+                DbEntry.TABLE_NAME_LS, projection, null, null, null, null, DbEntry.COLUMN_NAME_LS_TZXH+" desc",null);*/
+
+        if (c != null && c.getCount() > 0) {
+            while (c.moveToNext()) {
+                String ID = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_LLDLS_ID));   //表id 9标识id 领料单号+ 料号+position  (lld+lh+position)
+                String PH = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_PH));  //[0]品号
+                String PM = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_PM));  //[1]品名
+                String GG = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_GG));  //[2]规格
+                String CK = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_CK));        //[3]仓库
+                String KW = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_KW));  //[4]库位
+                String PC = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_PC));      //[5]批次
+                String DW = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_DW));       //[6]单位
+                String KCSL = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_KCSL));         //[7]库存数量
+                String TIMW = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_TIME)); //[8]最后更新时间
+                String STATE = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_STATE));       //[9] 状态码值
+                String FLSL = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_FLSL));       //[9] 状态码值
+                DbPickItem pickItem = new DbPickItem(PH, PM, GG, CK, KW, PC, DW, KCSL, TIMW, ID, STATE, FLSL);
+
+                dbDatalist.add(pickItem);
+
+            }
+        }
+        if (c != null) {
+            c.close();
+        }
+
+        db.close();
+        if (dbDatalist.isEmpty()) {
+            callback.onDataNotAvailable();
+        } else {
+            callback.onDbPickListItemLoaded(dbDatalist);
+        }
+    }
+
+    @Override
+    public void getDbKjdbListItem(@Nullable String id, String type, GetDbPickItemCallback callback) {
+        List<DbPickItem> dbDatalist = new ArrayList<>();
+        SQLiteDatabase db = mDbDbHelper.getReadableDatabase();
+        String[] projection = {
+                DbEntry.COLUMN_NAME_LLDLS_ID,      //表id 9标识id 领料单号+ 料号+position  (lld+lh+position)
+                DbEntry.COLUMN_NAME_PH,       //[0]品号
+                DbEntry.COLUMN_NAME_PM,       //[1]品名
+                DbEntry.COLUMN_NAME_GG,       //[2]规格
+                DbEntry.COLUMN_NAME_CK,         //[3]仓库
+                DbEntry.COLUMN_NAME_KW,       //[4]库位
+                DbEntry.COLUMN_NAME_PC,       //[5]批次
+                DbEntry.COLUMN_NAME_DW,        //[6]单位
+                DbEntry.COLUMN_NAME_KCSL,        //[7]库存数量
+                DbEntry.COLUMN_NAME_TIME,    //[8]最后更新时间
+                DbEntry.COLUMN_NAME_STATE,//[9] 状态码值
+                DbEntry.COLUMN_NAME_FLSL,
+        };
+
+        //通过库间调拨单号获取数据
+        String selection = DbEntry.COLUMN_NAME_LLDLS_ID + " LIKE ?AND " + DbEntry.COLUMN_NAME_TIME + " LIKE ?";
+        String[] selectionArgs = {id,type};
+
+        Cursor c = db.query(
+                DbEntry.TABLE_NAME_KJDB_ITEM, projection, selection, selectionArgs, null, null, DbEntry.COLUMN_NAME_LLDLS_ID + " desc", null);
+        /*Cursor c = db.query(
+                DbEntry.TABLE_NAME_LS, projection, null, null, null, null, DbEntry.COLUMN_NAME_LS_TZXH+" desc",null);*/
+
+        if (c != null && c.getCount() > 0) {
+            while (c.moveToNext()) {
+                String ID = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_LLDLS_ID));   //表id 9标识id 领料单号+ 料号+position  (lld+lh+position)
+                String PH = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_PH));  //[0]品号
+                String PM = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_PM));  //[1]品名
+                String GG = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_GG));  //[2]规格
+                String CK = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_CK));        //[3]仓库
+                String KW = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_KW));  //[4]库位
+                String PC = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_PC));      //[5]批次
+                String DW = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_DW));       //[6]单位
+                String KCSL = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_KCSL));         //[7]库存数量
+                String TIMW = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_TIME)); //[8]最后更新时间
+                String STATE = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_STATE));       //[9] 状态码值
+                String FLSL = c.getString(c.getColumnIndexOrThrow(DbEntry.COLUMN_NAME_FLSL));       //[9] 状态码值
+                DbPickItem pickItem = new DbPickItem(PH, PM, GG, CK, KW, PC, DW, KCSL, TIMW, ID, STATE, FLSL);
+
+                dbDatalist.add(pickItem);
+
+            }
+        }
+        if (c != null) {
+            c.close();
+        }
+
+        db.close();
+        if (dbDatalist.isEmpty()) {
+            callback.onDataNotAvailable();
+        } else {
+            callback.onDbPickListItemLoaded(dbDatalist);
+        }
+    }
+
+    @Override
+    public void deleteDbKjdbItem(@NonNull String id) {
+        SQLiteDatabase db = mDbDbHelper.getWritableDatabase();
+        String selection = DbEntry.COLUMN_NAME_LLDLS_ID + " = ?";
+        String[] selectionArgs = {id};
+        db.delete(DbEntry.TABLE_NAME_KJDB_ITEM, selection, selectionArgs);
         db.close();
     }
 }

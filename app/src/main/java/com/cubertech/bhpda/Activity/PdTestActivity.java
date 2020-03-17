@@ -151,6 +151,7 @@ public class PdTestActivity extends Activity {
         if (TextUtils.equals(state, "wlm")) {
             et_kw.setSelection(0);
             et_kw.requestFocus();
+            qdbh = et_wlbm.getText().toString();
         } else {
             HashMap<String, Object> params = new HashMap<String, Object>();
             String link = "";
@@ -529,23 +530,23 @@ public class PdTestActivity extends Activity {
 
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
-            //[0]企业编号//[1]据点//[2]清单编号//[3]序号//[4]物料编号//[5]物料名称
-            //[6]物料规格//[7]仓库//[8]库位//[9]批次//[10]库存数量//[11]实盘数量//[12]差异数量
-            //[13]调整数量//[14]创建者//[15]盘点者//[16]调整者//[17]创建时间//[18]盘点时间
-            //[19]调整时间//[20]盘点状态//[21]盘点设备//[22]盘点调整状态//[23] 备用字段1
-            //[24]备用字段2//[25]备用字段3//[26]备用字段4//[27]备用字段5//[28]备用字段6
+            //[0]清单编号//[1]序号//[2]物料编号//[3]物料名称
+            //[4]物料规格//[5]仓库//[6]库位//[7]批次//[8]库存数量//[9]实盘数量//[10]差异数量
+            //[11]调整数量//[12]创建者//[13]盘点者//[14]调整者//[15]创建时间//[16]盘点时间
+            //[17]盘点状态//[18]盘点设备//[19]盘点调整状态//[20] 备用字段1
+            //[22]备用字段2//[25]备用字段3//[26]备用字段4//[27]备用字段5//[28]备用字段6
             //[29]备用字段7//[30]备用字段8//[31]备用字段9//[32]备用字段10
-
+            holder.setIsRecyclable(false);
             ArrayList<String> list = (ArrayList<String>) objectsList.get(position);
-            holder.tvQddh.setText(list.get(2).toString());//清单编号[2]
-            holder.tvCk.setText(String.valueOf(list.get(7)));//仓库//[7]
-            holder.tvKw.setText(String.valueOf(list.get(8)));//库位//[8]
-            String xh = String.valueOf(list.get(3));
+            holder.tvQddh.setText(list.get(0).toString());//清单编号[2]
+            holder.tvCk.setText(String.valueOf(list.get(5)));//仓库//[7]
+            holder.tvKw.setText(String.valueOf(list.get(6)));//库位//[8]
+            String xh = String.valueOf(list.get(1));
             holder.linlayBtnPdContent.setVisibility(xh.contains("SP") ? View.VISIBLE : View.GONE);
             // 容器[5]
-            holder.tvPc.setText(list.get(9).toString());//批号//[9]
-            holder.tvSl.setText(TextUtils.isEmpty(String.valueOf(list.get(11)))
-                    ? String.valueOf(list.get(10)) : String.valueOf(list.get(11)));//数量//[11]  实盘数量为空填写库存数量
+            holder.tvPc.setText(list.get(7).toString());//批号//[9]
+            holder.tvSl.setText(TextUtils.isEmpty(String.valueOf(list.get(9)))
+                    ? String.valueOf(list.get(8)) : String.valueOf(list.get(9)));//数量//[11]  实盘数量为空填写库存数量
             holder.listCkContent.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

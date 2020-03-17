@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_user"
+    android:orientation="vertical">
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/mp.theme.dark_blue.background"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="库存"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:clickable="true"
+            android:src="@drawable/fanhui" />
+
+    </FrameLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/top"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                style="@style/layout1"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="5"
+                    android:gravity="center_vertical"
+                    android:text="品        号"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tv_ll"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="12"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout1"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="5"
+                    android:gravity="center_vertical"
+                    android:text="品        名"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tv_ll_name"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="12"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout1"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="5"
+                    android:gravity="center_vertical"
+                    android:text="规        格"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tv_ll_gg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="12"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/layout1"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="5"
+                    android:gravity="center_vertical"
+                    android:text="申请数量"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tv_ll_sqsl"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="12"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout1"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="5"
+                    android:gravity="center_vertical"
+                    android:text="匹配数量"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tv_ppsl"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="12"
+                    android:gravity="center_vertical"
+                    android:text="0"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/ll_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp" />
+        </LinearLayout>
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/LinearLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/button"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_ll"
+            style="@style/button"
+            android:text="保存" />
+
+        <Button
+            android:id="@+id/btn_qx"
+            style="@style/button"
+            android:text="取消" />
+    </LinearLayout>
+
+
+</LinearLayout>

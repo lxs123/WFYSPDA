@@ -66,17 +66,17 @@ import static java.lang.Integer.*;
  */
 public class GxzySdwlActivity extends AppCompatActivity {
     @BindView(R.id.tv_jhh)
-    TextView tvJhh;
+    TextView tvGdh;
     @BindView(R.id.tv_scbm)
     TextView tvScbm;
     @BindView(R.id.tv_bm_name)
-    TextView tvBmName;
+    TextView tvJgzx;
     @BindView(R.id.tv_ljkch)
-    TextView tvLjkch;
+    TextView tvPH;
     @BindView(R.id.tv_ljkcmc)
-    TextView tvLjkcmc;
+    TextView tvPM;
     @BindView(R.id.tv_ljkcgg)
-    TextView tvLjkcgg;
+    TextView tvGG;
     @BindView(R.id.tv_jgxh)
     TextView tvJgxh;
     @BindView(R.id.tv_gx)
@@ -84,11 +84,11 @@ public class GxzySdwlActivity extends AppCompatActivity {
     @BindView(R.id.tv_gxmc)
     TextView tvGxmc;
     @BindView(R.id.tv_jgsb)
-    TextView tvJgsb;
+    TextView tvYwgl;
     @BindView(R.id.tv_jslx)
     TextView tvJslx;
     @BindView(R.id.et_jssl)
-    TextView etJssl;
+    EditText etYjcl;
     @BindView(R.id.tv_jssj)
     TextView tvJssj;
     @BindView(R.id.et_jsry)
@@ -102,7 +102,7 @@ public class GxzySdwlActivity extends AppCompatActivity {
     @BindView(R.id.ry_title)
     TextView tvRyTitle;
     @BindView(R.id.tv_jhh01)
-    TextView tvJhh01;
+    TextView tvGdh01;
     @BindView(R.id.btn_js_sl)
     TextView tvJsSl;
     @BindView(R.id.btn_ks_sl)
@@ -275,11 +275,11 @@ public class GxzySdwlActivity extends AppCompatActivity {
                 builder.setPositiveButton("结束", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        if (falayBtnAdd.getVisibility() == View.GONE) {
-                            falayBtnAdd.setVisibility(View.VISIBLE);
-                            showAddJgry();
-                        } else
-                            add("结束");
+//                        if (falayBtnAdd.getVisibility() == View.GONE) {
+//                            falayBtnAdd.setVisibility(View.VISIBLE);
+//                            showAddJgry();
+//                        } else
+                        add("结束");
                     }
                 });
                 builder.setNegativeButton("取消", null);
@@ -395,24 +395,24 @@ public class GxzySdwlActivity extends AppCompatActivity {
     }
 
     private void clearData() {
-        tvJhh.setText("");//[0]计划号
+        tvGdh.setText("");//[0]计划号
         tvScbm.setText("");//[1] 生产部门
-        tvBmName.setText("");//[2] 部门名称
-        tvLjkch.setText("");//[3] 库存号
-        tvLjkcmc.setText("");//[4] 库存名称
-        tvLjkcgg.setText("");//[5] 库存规格
+        tvJgzx.setText("");//[2] 部门名称
+        tvPH.setText("");//[3] 库存号
+        tvPM.setText("");//[4] 库存名称
+        tvGG.setText("");//[5] 库存规格
         tvJssj.setText("");//[6] 接收时间
-        etJssl.setText("");//[7]接收数量
-        tvJgsb.setText("");//[8]加工设备
+        etJsry.setText("");//[7]接收数量
+        tvYwgl.setText("");//[8]加工设备
         tvJslx.setText("");//[9]接收类型
         //btn_qd.setText(objectList.get(10).toString());//[10] 类型
         tvJgxh.setText("");//11工序号
         tvGxmc.setText("");//12工序名称
 //        dialogObject = objectList.get(13);//13工序列表
-        tvJhh01.setText("");//14 备 注 计划号zy00n18y
+        tvGdh01.setText("");//14 备 注 计划号zy00n18y
         String lx = "";
         tvLxTitle.setText(lx + "类型");
-        tvSlTitle.setText(lx + "数量");
+//        tvSlTitle.setText(lx + "数量");
         tvSjTitle.setText(lx + "时间");
         tvRyTitle.setText(lx + "人员");
 
@@ -437,7 +437,7 @@ public class GxzySdwlActivity extends AppCompatActivity {
 
     private void onGxhClick() {
         //if (!TextUtils.equals(btn_qd.getText().toString(), "接收")) return;
-        if (TextUtils.isEmpty(tvJhh.getText().toString())) {
+        if (TextUtils.isEmpty(tvGdh.getText().toString())) {
             ToastUtils.showToast("请先扫码!");
             return;
         } else if (TextUtils.isEmpty(dialogObject.toString())) {
@@ -455,14 +455,15 @@ public class GxzySdwlActivity extends AppCompatActivity {
         String[] stringshwo = new String[objectList.size()];
 
         selPosition = 0;
+
         Collections.sort(objectList, new Comparator<Object>() {
             @Override
             public int compare(Object objects, Object objects1) {
                 List<Object> objectList1 = (List<Object>) objects;
                 List<Object> objectList2 = (List<Object>) objects1;
-                if (parseInt(objectList1.get(0).toString()) < parseInt(objectList2.get(0).toString())) {
+                if (objectList1.get(0).toString().compareTo(objectList2.get(0).toString()) < 0) {
                     return -1;
-                } else if (parseInt(objectList1.get(0).toString()) < parseInt(objectList2.get(0).toString())) {
+                } else if (objectList1.get(0).toString().compareTo(objectList2.get(0).toString()) == 0) {
                     return 0;
                 }
                 return 1;
@@ -493,7 +494,7 @@ public class GxzySdwlActivity extends AppCompatActivity {
 
                 /*params.put("zygxh", nameStrings[selPosition]);*/
                 params.put("zygxh", stringshwo[selPosition]);
-                params.put("zygxhz",nameStrings[selPosition]);
+                params.put("zygxhz", nameStrings[selPosition]);
                 params.put("strToken", "");
                 params.put("strVersion", Utils.getVersions(GxzySdwlActivity.this));
                 params.put("strPoint", "");
@@ -588,7 +589,7 @@ public class GxzySdwlActivity extends AppCompatActivity {
      * 添加转移数据
      */
     private void add(String zt) {
-        if (TextUtils.isEmpty(tvJhh.getText().toString())) {
+        if (TextUtils.isEmpty(tvGdh.getText().toString())) {
             ToastUtils.showToast("请扫描条码!");
             return;
         } else if (TextUtils.isEmpty(tvJgxh.getText().toString())) {
@@ -600,15 +601,15 @@ public class GxzySdwlActivity extends AppCompatActivity {
         }
         HashMap<String, Object> params = new HashMap<String, Object>();
         List<Object> objectList = new ArrayList<>();
-        objectList.add(tvJhh.getText().toString());//0 计划号
+        objectList.add(tvGdh.getText().toString());//0 计划号
         objectList.add(tvScbm.getText().toString());//1  生产部门
-        objectList.add(tvBmName.getText().toString());//2  部门名称
-        objectList.add(tvLjkch.getText().toString());//3  库存号
-        objectList.add(tvLjkcmc.getText().toString());//4  库存名称
-        objectList.add(tvLjkcgg.getText().toString());//5  库存规格
+        objectList.add(tvJgzx.getText().toString());//2  部门名称
+        objectList.add(tvPH.getText().toString());//3  库存号
+        objectList.add(tvPM.getText().toString());//4  库存名称
+        objectList.add(tvGG.getText().toString());//5  库存规格
         objectList.add(tvJssj.getText().toString());//6  时间
-        objectList.add(etJssl.getText().toString());//7  数量
-        objectList.add(tvJgsb.getText().toString());//8  加工设备
+        objectList.add(etYjcl.getText().toString());//7  数量
+        objectList.add(tvYwgl.getText().toString());//8  加工设备
         objectList.add(tvJslx.getText().toString());//9  接收类型
 
         objectList.add(tvJgxh.getText().toString());//10 工序号
@@ -667,10 +668,10 @@ public class GxzySdwlActivity extends AppCompatActivity {
             return;
         }
         String strTm = et_tm.getText().toString();
-        if (!strTm.contains("#")) {
-            ToastUtils.showToast("请扫描正确格式的单号！");
-            return;
-        }
+//        if (!strTm.contains("#")) {
+//            ToastUtils.showToast("请扫描正确格式的单号！");
+//            return;
+//        }
         String[] split = strTm.split("#");
         if (TextUtils.isEmpty(split[0])) {
             ToastUtils.showToast("请扫描正确格式的单号！");
@@ -687,25 +688,29 @@ public class GxzySdwlActivity extends AppCompatActivity {
             @Override
             public void onResponse(Object o) {
                 List<Object> objectList = (List<Object>) o;
-                Log.e("######", objectList.toString());
-                tvJhh.setText(objectList.get(0).toString());//[0]计划号
+                //0工单单号  1原来部门名称  2加工中心  3品号  4品名  5规格  6时间  7数量  8已完工量
+                //9加工类型  10状态   11工序号  12工序名称  13工序列表  14备注计划 15接收数量，16开始时间
+                //17j结束时间
+                Log.e("######gxzy", objectList.toString());
+                tvGdh.setText(objectList.get(0).toString());
+                tvGdh01.setText(objectList.get(0).toString());//[0]0工单单号
                 tvScbm.setText(objectList.get(1).toString());//[1] 生产部门
-                tvBmName.setText(objectList.get(2).toString());//[2] 部门名称
-                tvLjkch.setText(objectList.get(3).toString());//[3] 库存号
-                tvLjkcmc.setText(objectList.get(4).toString());//[4] 库存名称
-                tvLjkcgg.setText(objectList.get(5).toString());//[5] 库存规格
+                tvJgzx.setText(objectList.get(2).toString());//[2] 部门名称
+                tvPH.setText(objectList.get(3).toString());//[3] 3品号
+                tvPM.setText(objectList.get(4).toString());//[4] 4品名
+                tvGG.setText(objectList.get(5).toString());//[5] 5规格
                 tvJssj.setText(objectList.get(6).toString());//[6] 接收时间
-                etJssl.setText(objectList.get(7).toString());//[7]接收数量
-                tvJgsb.setText(objectList.get(8).toString());//[8]加工设备
+                etYjcl.setText(objectList.get(7).toString());//[7]7数量
+                tvYwgl.setText(objectList.get(8).toString());//[8]8已完工量
                 tvJslx.setText(objectList.get(9).toString());//[9]接收类型
                 //btn_qd.setText(objectList.get(10).toString());//[10] 类型
                 tvJgxh.setText(objectList.get(11).toString());//11工序号
                 tvGxmc.setText(objectList.get(12).toString());//12工序名称
                 dialogObject = objectList.get(13);//13工序列表
-                tvJhh01.setText(objectList.get(14).toString());//14 备 注 计划号zy00n18y
+//                tvGdh01.setText(objectList.get(14).toString());//14 备 注 计划号zy00n18y
                 String lx = objectList.get(10).toString();
                 tvLxTitle.setText(lx + "类型");
-                tvSlTitle.setText(lx + "数量");
+//                tvSlTitle.setText(lx + "数量");
                 tvSjTitle.setText(lx + "时间");
                 tvRyTitle.setText(lx + "人员");
                 //lxs 2019 11 5 弃用

@@ -313,4 +313,24 @@ public class DbRepository implements DbDataSource {
     public void deleteDbDdxhItem(@NonNull String id) {
         mDbsLocalDataSource.deleteDbDdxhItem(id);
     }
+
+    @Override
+    public void saveDbKjdbItem(@NonNull List<DbPickItem> dbPickList) {
+        mDbsLocalDataSource.saveDbPickItem(dbPickList);
+    }
+
+    @Override
+    public void getDbKjdbListItem(@Nullable String id, GetDbPickItemCallback callback) {
+        mDbsLocalDataSource.getDbPickListItem(id, callback);
+    }
+
+    @Override
+    public void getDbKjdbListItem(@Nullable String id, String type, GetDbPickItemCallback callback) {
+        mDbsLocalDataSource.getDbKjdbListItem(id, type, callback);
+    }
+
+    @Override
+    public void deleteDbKjdbItem(@NonNull String id) {
+        mDbsLocalDataSource.deleteDbPickItem(id);
+    }
 }

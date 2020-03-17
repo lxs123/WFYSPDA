@@ -16,11 +16,35 @@
             android:layout_marginLeft="15dp"
             android:layout_weight="5"
             android:gravity="center_vertical"
-            android:text="物料编号"
+            android:text="单        号"
             android:textSize="17sp" />
 
         <TextView
             android:id="@+id/tv_wlbh"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:gravity="center_vertical"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout1"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="5"
+            android:gravity="center_vertical"
+            android:text="品        号"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tv_ph"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="12"
@@ -46,7 +70,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_weight="2.5"
                 android:gravity="center_vertical"
-                android:text="拨出数量"
+                android:text="数        量"
                 android:textSize="17sp" />
 
             <TextView
@@ -77,7 +101,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_weight="2.5"
                 android:gravity="center_vertical"
-                android:text="项        次"
+                android:text="批        次"
                 android:textSize="17sp" />
 
             <TextView
@@ -175,7 +199,33 @@
 
     <LinearLayout
         style="@style/layout1"
-        android:layout_marginBottom="10dp">
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="5"
+            android:gravity="center_vertical"
+            android:text="匹配数量"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tv_ppsl"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:cursorVisible="true"
+            android:digits="0123456789."
+            android:gravity="center_vertical"
+            android:imeOptions="actionNext"
+            android:inputType="numberDecimal"
+            android:text="0"
+            android:textCursorDrawable="@null"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/layout1">
 
         <TextView
             android:layout_width="0dp"
@@ -202,5 +252,31 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        style="@style/layout1"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="10dp"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/login_button_selector_shape"
+            android:gravity="center"
+            android:text="添加"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -156,6 +156,14 @@ public class DhysActivity extends AppCompatActivity implements SwipeRefreshLayou
             scanCode();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (TextUtils.isEmpty(tm)) {
+
+        }
+    }
+
     /**
      * 初始化接口
      */
@@ -437,6 +445,14 @@ public class DhysActivity extends AppCompatActivity implements SwipeRefreshLayou
                         objects.set(12, bhgyy);
                         objects.set(13, "1");
                         list.set(i, objects);
+                        if (TextUtils.equals(tm, "all")) {
+                            initCode();
+                        } else {
+                            etTm.setText(tm + "#");
+                            scanCode();
+                        }
+
+
                     } else {
                         List<Object> objects = (List<Object>) list.get(i);
                         list.set(i, objects);

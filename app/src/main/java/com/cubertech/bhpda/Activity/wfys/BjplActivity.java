@@ -40,39 +40,38 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Created by admin on 2019/12/27.
+ * Created by admin on 2020/3/7.
  */
 
-public class YsGlgxjlActivity extends AppCompatActivity {
-    @BindView(R.id.et_zj)
-    EditText etZj;
-    @BindView(R.id.tv_zj_ph)
-    TextView tvZjPh;
-    @BindView(R.id.tv_zj_pm)
-    TextView tvZjPm;
-    @BindView(R.id.tv_zj_gg)
-    TextView tvZjGg;
-    @BindView(R.id.et_yj)
-    EditText etYj;
-    @BindView(R.id.recycler_b_id)
-    RecyclerView mYjList;
-    private MyYjAdapter adapter;
-    ServiceUtils su = ServiceUtils.getInstance();
-    private String tmAll;
+public class BjplActivity extends AppCompatActivity {
+    @BindView(R.id.et_gddh)
+    EditText etGddh;
+    @BindView(R.id.tv_sbh)
+    TextView tvSbh;
+    @BindView(R.id.tv_xmh)
+    TextView tvXmh;
+    @BindView(R.id.tv_xmmc)
+    TextView tvXmmc;
+    @BindView(R.id.tv_cpph)
+    TextView tvCpph;
+    @BindView(R.id.tv_cppm)
+    TextView tvCppm;
+    @BindView(R.id.tv_cpgg)
+    TextView tvCpgg;
+    @BindView(R.id.ll_list)
+    RecyclerView mList;
     private String tm;
+    private ServiceUtils su = ServiceUtils.getInstance();
+    private List<Map<String, Object>> mapList = new ArrayList<>();
+    private MyBjplAdapter adapter;
+    private String tmAll;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_glgxjl);
+        setContentView(R.layout.activity_bjpl);
         ButterKnife.bind(this);
-        mYjList.setLayoutManager(new LinearLayoutManager(this));
-        DividerItemDecoration itemDecoration = new DividerItemDecoration(YsGlgxjlActivity.this, DividerItemDecoration.VERTICAL);
-        itemDecoration.setDrawable(getResources().getDrawable(R.drawable.shape_divider));
-        mYjList.addItemDecoration(itemDecoration);
-        adapter = new MyYjAdapter();
-        mYjList.setAdapter(adapter);
-        etZj.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        etGddh.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 // 当actionId == XX_SEND 或者 XX_DONE时都触发
@@ -88,64 +87,85 @@ public class YsGlgxjlActivity extends AppCompatActivity {
                 return false;
             }
         });
+        adapter = new MyBjplAdapter();
+        mList.setLayoutManager(new LinearLayoutManager(this));
+        DividerItemDecoration decoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        decoration.setDrawable(getResources().getDrawable(R.drawable.shape_divider));
+        mList.addItemDecoration(decoration);
+        mList.setAdapter(adapter);
     }
 
     private void scanCode() {
-        if (!etZj.getText().toString().contains("#")) {
+        if (!etGddh.getText().toString().contains("#")) {
             ToastUtils.showToast("请扫描正确格式的单号！");
             return;
         }
-        String strTm = etZj.getText().toString();
+        String strTm = etGddh.getText().toString();
         String[] split = strTm.split("#");
-        if (TextUtils.isEmpty(split[0]) || split.length < 2) {
+        if (TextUtils.isEmpty(split[0]) || split.length != 3) {
             ToastUtils.showToast("请扫描正确格式的单号！");
             return;
         }
-//        try {
-//            split[0] = strTm.substring(strTm.indexOf("#") + 1, strTm.indexOf("#") + 12);
-//            Log.e("######", split[0]);
-//        } catch (IndexOutOfBoundsException e) {
-//            ToastUtils.showToast("请扫描正确格式的主件码！");
-//            return;
-//        }
-        etZj.setText(split[1]);
+        etGddh.setText(split[0]);
+        tvSbh.setText(split[split.length - 1]);
         //todo 请填写  方法名
-        String link = "hqglgxzj";
+        String link = "hqbjplcp";
         HashMap<String, Object> params = new HashMap<String, Object>();
         //todo 请修改  参数名
-        params.put("pmdsdocno", split[1]);
+        params.put("pmdsdocno", split[0]);
         params.put("strToken", "");
         params.put("strVersion", Utils.getVersions(this));
         params.put("strPoint", "");
         params.put("strActionType", "1001");
-        su.callService(YsGlgxjlActivity.this, link, params, true, new ServiceUtils.ServiceCallBack() {
+        su.callService(BjplActivity.this, link, params, true, new ServiceUtils.ServiceCallBack() {
             @Override
             public void onResponse(Object o) {
                 tmAll = strTm;
-                tm = etZj.getText().toString();
+                tm = etGddh.getText().toString();
                 List<Object> objectList = (List<Object>) o;
-                //0成品品号   1成品品名   2成品规格
+                //0成品品号   1成品品名   2成品规格   3项目编号   4项目名称
 
-                tvZjPh.setText(objectList.get(0).toString());
-                tvZjPm.setText(objectList.get(1).toString());
-                tvZjGg.setText(objectList.get(2).toString());
+                tvCpph.setText(objectList.get(0).toString());
+                tvCppm.setText(objectList.get(1).toString());
+                tvCpgg.setText(objectList.get(2).toString());
+                tvXmh.setText(objectList.get(3).toString());
+                tvXmmc.setText(objectList.get(4).toString());
 
-                adapter.setList(new ArrayList<>());
+                mapList = new ArrayList<>();
+                adapter.setList(mapList);
             }
 
             @Override
             public void onFailure(String str) {
-                CommonUtil.showErrorDialog(YsGlgxjlActivity.this, str);
+                CommonUtil.showErrorDialog(BjplActivity.this, str);
                 su.closeParentDialog();//必须
+//                假数据
+//                List<Object> objectList = new ArrayList<>();
+//                objectList.add("工作中心");
+//                objectList.add("品号");
+//                objectList.add("品名");
+//                objectList.add("规格");
+//                objectList.add("入库#库位");
+//                objectList.add("预计产量");
+//                objectList.add("0");
+//                objectList.add("工单单别");
+//                objectList.add("工单单号");
+//                objectList.add("材料品号");
+//                objectList.add("10");
+//                objectList.add("领料仓库");
+//                objectList.add("领料库位");
+//                list.add(objectList);
+//                adapter.setList(list);
             }
 
             @Override
             public void onError(String error) {
-                Toast.makeText(YsGlgxjlActivity.this, error, Toast.LENGTH_LONG).show();
+                Toast.makeText(BjplActivity.this, error, Toast.LENGTH_LONG).show();
                 su.closeParentDialog();//必须
-                etZj.setText("");
-                etZj.setSelection(0);
-                etZj.requestFocus();
+                tvSbh.setText("");
+                etGddh.setText("");
+                etGddh.setSelection(0);
+                etGddh.requestFocus();
 
             }
 
@@ -156,50 +176,50 @@ public class YsGlgxjlActivity extends AppCompatActivity {
         });
     }
 
-    private void scanCodePl(String yjm, int position) {
-        if (!yjm.contains("#")) {
-            ToastUtils.showToast("请扫描正确格式的元件码！");
+    private void scanCodePl(String plm, int position) {
+        if (!plm.contains("#")) {
+            ToastUtils.showToast("请扫描正确格式的配料码！");
             return;
         }
-        String[] split = yjm.split("#");
+        String[] split = plm.split("#");
         if (TextUtils.isEmpty(split[0]) || split.length < 2) {
-            ToastUtils.showToast("请扫描正确格式的元件码！");
+            ToastUtils.showToast("请扫描正确格式的配料码！");
             return;
         }
 //        try {
-//            split[0] = yjm.substring(yjm.indexOf("#") + 1, yjm.indexOf("#") + 12);
+//            split[0] = plm.substring(plm.indexOf("#")+1, plm.indexOf("#") + 13);
 //            Log.e("######", split[0]);
 //        } catch (IndexOutOfBoundsException e) {
-//            ToastUtils.showToast("请扫描正确格式的主件码！");
+//            ToastUtils.showToast("请扫描正确格式的配料码！");
 //            return;
 //        }
 
         //todo 请填写  方法名
-        String link = "hqglgxyj";
+        String link = "hqbjplpl";
         HashMap<String, Object> params = new HashMap<String, Object>();
         //todo 请修改  参数名
         params.put("pmdsdocno", split[1]);
-        params.put("pmdsdocno2", split[0]);
+        params.put("pmdsdocno2", tmAll);
         params.put("strToken", "");
         params.put("strVersion", Utils.getVersions(this));
         params.put("strPoint", "");
         params.put("strActionType", "1001");
-        su.callService(YsGlgxjlActivity.this, link, params, true, new ServiceUtils.ServiceCallBack() {
+        su.callService(BjplActivity.this, link, params, true, new ServiceUtils.ServiceCallBack() {
             @Override
             public void onResponse(Object o) {
                 List<Object> objectList = (List<Object>) o;
-                adapter.replaceItem(split[1], objectList, position, yjm);
+                adapter.replaceItem(split[1], objectList, position, plm);
             }
 
             @Override
             public void onFailure(String str) {
-                CommonUtil.showErrorDialog(YsGlgxjlActivity.this, str);
+                CommonUtil.showErrorDialog(BjplActivity.this, str);
                 su.closeParentDialog();//必须
             }
 
             @Override
             public void onError(String error) {
-                Toast.makeText(YsGlgxjlActivity.this, error, Toast.LENGTH_LONG).show();
+                Toast.makeText(BjplActivity.this, error, Toast.LENGTH_LONG).show();
                 su.closeParentDialog();//必须
 
 
@@ -210,57 +230,20 @@ public class YsGlgxjlActivity extends AppCompatActivity {
                 su.closeParentDialog();//必须
             }
         });
-    }
-
-    @OnClick({R.id.del1d, R.id.del1dd, R.id.btn_submit, R.id.btn_qx, R.id.left})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.del1d:
-                etZj.setText("");
-                etZj.setSelection(0);
-                etZj.requestFocus();
-                break;
-            case R.id.del1dd:
-                etYj.setText("");
-                etYj.setSelection(0);
-                etYj.requestFocus();
-                break;
-            case R.id.btn_submit:
-                if (TextUtils.isEmpty(tm) || TextUtils.isEmpty(tvZjPh.getText().toString())) {
-                    ToastUtils.showToast("请扫描主件码！");
-                    return;
-                }
-                List<Map<String, Object>> list = adapter.getList();
-                if (ListUtils.isEmpty(list)) {
-                    ToastUtils.showToast("请扫描元件码！");
-                    return;
-                }
-                upLoading();
-                break;
-            case R.id.left:
-                onBackPressed();
-                break;
-
-            case R.id.btn_qx:
-                adapter.addItem("");
-                break;
-        }
     }
 
     private void upLoading() {
         List<Object> list1 = new ArrayList<>();
-
-        list1.add(tvZjPh.getText().toString());
-        list1.add(tmAll);//1成品码
+        list1.add(tmAll);//0成品码
+        list1.add(tvCpph.getText().toString());
         List<Object> list2 = new ArrayList<>();
         List<Map<String, Object>> adapterList = adapter.getList();
         for (Map<String, Object> map : adapterList) {
             List<Object> objectList = new ArrayList<>();
             List<Object> objectList1 = (List<Object>) map.get("data");
-            if (!TextUtils.isEmpty(map.get("yjmAll").toString())) {
-                objectList.add(objectList1.get(0));//0元件品号
-                objectList.add(map.get("yjmAll"));//1元件码
-//
+            if (!TextUtils.isEmpty(map.get("plmAll").toString())) {
+                objectList.add(map.get("plmAll"));//0配料码
+                objectList.add(objectList1.get(0));//1配料品号
                 SharedPreferences sp = getSharedPreferences(
                         "config", Activity.MODE_PRIVATE);
 
@@ -271,13 +254,13 @@ public class YsGlgxjlActivity extends AppCompatActivity {
 
         }
         if (ListUtils.isEmpty(list2)) {
-            ToastUtils.showToast("请扫描元件码！");
+            ToastUtils.showToast("请扫描配料码！");
             return;
 
         }
 
         //todo 请填写  方法名
-        String link = "bcglgx";
+        String link = "bcbjpl";
         HashMap<String, Object> params = new HashMap<String, Object>();
         //todo 请修改  参数名
         params.put("shjy", list1);
@@ -286,7 +269,7 @@ public class YsGlgxjlActivity extends AppCompatActivity {
         params.put("strVersion", Utils.getVersions(this));
         params.put("strPoint", "");
         params.put("strActionType", "1001");
-        su.callService(YsGlgxjlActivity.this, link, params, true, new ServiceUtils.ServiceCallBack() {
+        su.callService(BjplActivity.this, link, params, true, new ServiceUtils.ServiceCallBack() {
             @Override
             public void onResponse(Object o) {
                 ToastUtils.showToast("提交成功！");
@@ -300,13 +283,13 @@ public class YsGlgxjlActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(String str) {
-                CommonUtil.showErrorDialog(YsGlgxjlActivity.this, str);
+                CommonUtil.showErrorDialog(BjplActivity.this, str);
                 su.closeParentDialog();//必须
             }
 
             @Override
             public void onError(String error) {
-                Toast.makeText(YsGlgxjlActivity.this, error, Toast.LENGTH_LONG).show();
+                Toast.makeText(BjplActivity.this, error, Toast.LENGTH_LONG).show();
                 su.closeParentDialog();//必须
 
 
@@ -319,13 +302,43 @@ public class YsGlgxjlActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+
+    @OnClick({R.id.left, R.id.del1d, R.id.btn_submit, R.id.btn_addpl})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.left:
+                onBackPressed();
+                break;
+            case R.id.del1d:
+                etGddh.setText("");
+                etGddh.setSelection(0);
+                etGddh.requestFocus();
+                break;
+            case R.id.btn_submit:
+                if (TextUtils.isEmpty(tm) || TextUtils.isEmpty(tvSbh.getText().toString())) {
+                    ToastUtils.showToast("请扫描成品码！");
+                    return;
+                }
+                List<Map<String, Object>> list = adapter.getList();
+                if (ListUtils.isEmpty(list)) {
+                    ToastUtils.showToast("请扫描配料码！");
+                    return;
+                }
+                upLoading();
+                break;
+            case R.id.btn_addpl:
+                if (TextUtils.isEmpty(tm) || TextUtils.isEmpty(tvSbh.getText().toString())) {
+                    ToastUtils.showToast("请扫描成品码！");
+                    return;
+                }
+                adapter.addItem("");
+                break;
+        }
     }
 
-    public class MyYjAdapter extends RecyclerView.Adapter<MyYjAdapter.ViewHolder> {
+
+    public class MyBjplAdapter extends RecyclerView.Adapter<MyBjplAdapter.ViewHolder> {
+
         private List<Map<String, Object>> list = new ArrayList<>();
 
         public List<Map<String, Object>> getList() {
@@ -339,7 +352,7 @@ public class YsGlgxjlActivity extends AppCompatActivity {
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listitem_glgxjl_add, null);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listitem_bjpl_add, null);
             view.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             return new ViewHolder(view);
         }
@@ -347,8 +360,8 @@ public class YsGlgxjlActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
             Map<String, Object> map = list.get(position);
-            holder.etTm.setText(map.get("yjm").toString());
-            //0元件品号  1元件品名   2元件规格
+            holder.etTm.setText(map.get("plm").toString());
+            //0配料品号  1配料品名   2配料规格
             List<Object> objectList = (List<Object>) map.get("data");
             holder.tvCpph.setText(String.valueOf(objectList.get(0)));
             holder.tvCppm.setText(String.valueOf(objectList.get(1)));
@@ -356,10 +369,14 @@ public class YsGlgxjlActivity extends AppCompatActivity {
             holder.etTm.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                 @Override
                 public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    // 当actionId == XX_SEND 或者 XX_DONE时都触发
+                    // 或者event.getKeyCode == ENTER 且 event.getAction ==
+                    // ACTION_DOWN时也触发
                     // 注意，这是一定要判断event != null。因为在某些输入法上会返回null。
                     if (actionId == EditorInfo.IME_ACTION_SEND || actionId == EditorInfo.IME_ACTION_DONE || (event != null
                             && KeyEvent.KEYCODE_ENTER == event.getKeyCode() && KeyEvent.ACTION_DOWN == event.getAction())) {
                         //执行相关读取操作
+                        //Toast.makeText(GxzyActivity.this, "执行读取数据库操作", Toast.LENGTH_SHORT).show();
                         scanCodePl(holder.etTm.getText().toString(), position);//
                     }
                     return false;
@@ -388,10 +405,10 @@ public class YsGlgxjlActivity extends AppCompatActivity {
             return ListUtils.getSize(list);
         }
 
-        public void addItem(String yjm) {
+        public void addItem(String plm) {
             Map<String, Object> map = new HashMap<>();
-            map.put("yjm", yjm);
-            map.put("yjmAll", yjm);
+            map.put("plm", plm);
+            map.put("plmAll", plm);
             List<Object> objectList = new ArrayList<>();
             objectList.add("");
             objectList.add("");
@@ -401,10 +418,10 @@ public class YsGlgxjlActivity extends AppCompatActivity {
             setList(list);
         }
 
-        public void replaceItem(String yjm, List<Object> objects, int position, String yjmAll) {
+        public void replaceItem(String plm, List<Object> objects, int position, String plmAll) {
             Map<String, Object> map = new HashMap<>();
-            map.put("yjm", yjm);
-            map.put("yjmAll", yjmAll);
+            map.put("plm", plm);
+            map.put("plmAll", plmAll);
             map.put("data", objects);
             list.set(position, map);
             setList(list);

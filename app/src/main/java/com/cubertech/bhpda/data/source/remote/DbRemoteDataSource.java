@@ -266,4 +266,24 @@ public class DbRemoteDataSource implements DbDataSource {
     public void deleteDbDdxhItem(@NonNull String id) {
 
     }
+
+    @Override
+    public void saveDbKjdbItem(@NonNull List<DbPickItem> dbPickList) {
+
+    }
+
+    @Override
+    public void getDbKjdbListItem(@Nullable String id, GetDbPickItemCallback callback) {
+
+    }
+
+    @Override
+    public void getDbKjdbListItem(@Nullable String id, String type, GetDbPickItemCallback callback) {
+
+    }
+
+    @Override
+    public void deleteDbKjdbItem(@NonNull String id) {
+
+    }
 }

@@ -50,7 +50,7 @@ public class GlgxjlActivity extends AppCompatActivity implements View.OnFocusCha
 
     private OnFragmentInteractionListener mListener;
     //private View Iview;
-    private EditText et_gd, et_zj, et_yj, et_ry, et_jq, et_bz;
+    private EditText et_gd, et_zj, et_yj, et_ry, et_bz;
     private EditText et_bgsl;//报工数量
 
     private TextView tv_gy, tv_zj_ph, tv_zj_pm, tv_zj_gg;
@@ -101,7 +101,7 @@ public class GlgxjlActivity extends AppCompatActivity implements View.OnFocusCha
         et_zj = (EditText) findViewById(R.id.et_zj);
         et_yj = (EditText) findViewById(R.id.et_yj);
         et_ry = (EditText) findViewById(R.id.et_ry);
-        et_jq = (EditText) findViewById(R.id.et_jq);
+//        et_jq = (EditText) findViewById(R.id.et_jq);
         et_bz = (EditText) findViewById(R.id.et_bz);
         btn_submit = (Button) findViewById(R.id.btn_submit);
         et_bgsl = (EditText) findViewById(R.id.et_bgsl);
@@ -119,14 +119,14 @@ public class GlgxjlActivity extends AppCompatActivity implements View.OnFocusCha
         xiangji2 = (RelativeLayout) findViewById(R.id.del1d);
         xiangji3 = (RelativeLayout) findViewById(R.id.del1dd);
         xiangji4 = (RelativeLayout) findViewById(R.id.del1dd3);
-        xiangji5 = (RelativeLayout) findViewById(R.id.del1dd33);
-        xiangji6 = (RelativeLayout) findViewById(R.id.del1dd33444);
+//        xiangji5 = (RelativeLayout) findViewById(R.id.del1dd33);
+//        xiangji6 = (RelativeLayout) findViewById(R.id.del1dd33444);
 
         et_gd.setOnFocusChangeListener(this);
         et_zj.setOnFocusChangeListener(this);
         et_yj.setOnFocusChangeListener(this);
         et_ry.setOnFocusChangeListener(this);
-        et_jq.setOnFocusChangeListener(this);
+//        et_jq.setOnFocusChangeListener(this);
         et_bz.setOnFocusChangeListener(this);
         ImageView left = (ImageView) findViewById(R.id.left);
         left.setOnClickListener(new View.OnClickListener() {
@@ -147,7 +147,7 @@ public class GlgxjlActivity extends AppCompatActivity implements View.OnFocusCha
         et_zj.setOnEditorActionListener(new MyEditorAction());
         et_yj.setOnEditorActionListener(new MyEditorAction());
         et_ry.setOnEditorActionListener(new MyEditorAction());
-        et_jq.setOnEditorActionListener(new MyEditorAction());
+//        et_jq.setOnEditorActionListener(new MyEditorAction());
         et_bz.setOnEditorActionListener(new MyEditorAction());
 
         recycler = (RecyclerView) findViewById(R.id.recycler_b_id);
@@ -323,7 +323,7 @@ public class GlgxjlActivity extends AppCompatActivity implements View.OnFocusCha
         value.add(et_zj.getText().toString().trim().equals("") ? "" : et_zj.getText().toString().trim());//主件条码3
         value.add(tv_zj_ph.getText().toString().trim().equals("") ? "" : tv_zj_ph.getText().toString().trim());//主件品号4
         value.add(et_ry.getText().toString().trim().equals("") ? "" : et_ry.getText().toString().trim());//人员条码5
-        value.add(et_jq.getText().toString().trim().equals("") ? "" : et_jq.getText().toString().trim());//机器条码6
+//        value.add(et_jq.getText().toString().trim().equals("") ? "" : et_jq.getText().toString().trim());//机器条码6
         value.add(et_bz.getText().toString().trim().equals("") ? "" : et_bz.getText().toString().trim());//班组条码7
         value.add(et_bgsl.getText().toString().trim().equals("") ? "0" : et_bgsl.getText().toString().trim());//报工数量8
         List<Object> yjlist = new ArrayList<Object>();
@@ -470,7 +470,7 @@ public class GlgxjlActivity extends AppCompatActivity implements View.OnFocusCha
         } else if (requestCode == 4) {
             et_ry.setText(ScanResult);
         } else if (requestCode == 5) {
-            et_jq.setText(ScanResult);
+//            et_jq.setText(ScanResult);
         } else if (requestCode == 6) {
             et_bz.setText(ScanResult);
         }
@@ -579,17 +579,17 @@ public class GlgxjlActivity extends AppCompatActivity implements View.OnFocusCha
                         keycodegd("ry");
                     }
                     break;
-                case R.id.et_jq:
-                    // 当actionId == XX_SEND 或者 XX_DONE时都触发
-                    // 或者event.getKeyCode == ENTER 且 event.getAction ==
-                    // ACTION_DOWN时也触发
-                    // 注意，这是一定要判断event != null。因为在某些输入法上会返回null。
-                    if (actionId == EditorInfo.IME_ACTION_SEND || actionId == EditorInfo.IME_ACTION_DONE || (event != null
-                            && KeyEvent.KEYCODE_ENTER == event.getKeyCode() && KeyEvent.ACTION_DOWN == event.getAction())) {
-                        // 执行扫描事件函数
-                        keycodegd("jq");
-                    }
-                    break;
+//                case R.id.et_jq:
+//                    // 当actionId == XX_SEND 或者 XX_DONE时都触发
+//                    // 或者event.getKeyCode == ENTER 且 event.getAction ==
+//                    // ACTION_DOWN时也触发
+//                    // 注意，这是一定要判断event != null。因为在某些输入法上会返回null。
+//                    if (actionId == EditorInfo.IME_ACTION_SEND || actionId == EditorInfo.IME_ACTION_DONE || (event != null
+//                            && KeyEvent.KEYCODE_ENTER == event.getKeyCode() && KeyEvent.ACTION_DOWN == event.getAction())) {
+//                        // 执行扫描事件函数
+//                        keycodegd("jq");
+//                    }
+//                    break;
                 case R.id.et_bz:
                     // 当actionId == XX_SEND 或者 XX_DONE时都触发
                     // 或者event.getKeyCode == ENTER 且 event.getAction ==

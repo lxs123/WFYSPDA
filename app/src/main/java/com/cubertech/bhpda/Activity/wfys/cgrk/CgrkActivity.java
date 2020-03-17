@@ -365,7 +365,7 @@ public class CgrkActivity extends AppCompatActivity implements SwipeRefreshLayou
                 for (Object o : list) {
                     if (ListUtils.getSize(mapList) != ListUtils.getSize(list)) {
                         ToastUtils.showToast("请完善批次，注：每条数据都需要生成批次！");
-                    return;
+                        return;
                     }
 //                    for (int j = 0; j < ListUtils.getSize(mapList); j++) {
 //                        if (Integer.parseInt(String.valueOf(mapList.get(i).get("position"))) == anInt) {
@@ -381,7 +381,7 @@ public class CgrkActivity extends AppCompatActivity implements SwipeRefreshLayou
                         double jhsl = Double.parseDouble(TextUtils.isEmpty(String.valueOf(objectList2.get(10))) ? "0"
                                 : String.valueOf(objectList2.get(10))) + Double.parseDouble(TextUtils.isEmpty(String.valueOf(objectList2.get(11))) ? "0"
                                 : String.valueOf(objectList2.get(11)));
-                        objectList1.add(String.valueOf(jhsl));//进货数量==验收数量+yan'退数量4
+                        objectList1.add(toList.get(2));//进货数量==验收数量+yan'退数量4
                         objectList1.add(String.valueOf(objectList2.get(8)));//仓库编号5
                         objectList1.add("********************");//批号6
                         objectList1.add("");//7

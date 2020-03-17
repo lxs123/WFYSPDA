@@ -168,4 +168,12 @@ public interface DbDataSource {
     void getDbDdxhItemList(@Nullable String id, GetDbDdxhItemCallback callback);
 
     void deleteDbDdxhItem(@NonNull String id);
+
+    void saveDbKjdbItem(@NonNull List<DbPickItem> dbPickList);//插入杂收杂发
+
+    void getDbKjdbListItem(@Nullable String id, GetDbPickItemCallback callback);
+
+    void getDbKjdbListItem(@Nullable String id,String type, GetDbPickItemCallback callback);
+
+    void deleteDbKjdbItem(@NonNull String id);
 }

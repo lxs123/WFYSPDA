@@ -1,5 +1,6 @@
 package com.cubertech.bhpda.Activity.wfys.db;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -18,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -27,6 +30,7 @@ import android.widget.Toast;
 import com.cubertech.bhpda.R;
 import com.cubertech.bhpda.connect.retrofits.ServiceUtils;
 import com.cubertech.bhpda.data.DbKjdb;
+import com.cubertech.bhpda.data.DbPickItem;
 import com.cubertech.bhpda.data.source.DbDataSource;
 import com.cubertech.bhpda.data.source.DbRepository;
 import com.cubertech.bhpda.data.source.local.DbLocalDataSource;
@@ -35,6 +39,7 @@ import com.cubertech.bhpda.utils.ListUtils;
 import com.cubertech.bhpda.utils.ToastUtils;
 import com.cubertech.bhpda.utils.Utils;
 
+import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -93,6 +98,9 @@ public class KjdbActivity extends AppCompatActivity {
             }
         });
         mKjdbList.setLayoutManager(new LinearLayoutManager(this));
+        DividerItemDecoration decoration = new DividerItemDecoration(KjdbActivity.this, DividerItemDecoration.VERTICAL);
+        decoration.setDrawable(getResources().getDrawable(R.drawable.shape_divider));
+        mKjdbList.addItemDecoration(decoration);
         adapter = new MyKjdbAdapter();
         mKjdbList.setAdapter(adapter);
     }
@@ -177,25 +185,30 @@ public class KjdbActivity extends AppCompatActivity {
                 List<DbKjdb> dbZszfList = new ArrayList<>();
                 for (Object obj : objectList) {
                     List<Object> objectList1 = (List<Object>) obj;
+                    //0单别 1 单号 2序号 3品号 4品名 5规格 6数量 7 转出仓库 8转入仓库  9 部门编号 10部门名称 11是否启用条码
+                    //12管理层级   13批号   14 单位  15库位 16 状态
                     DbKjdb dbZszf = new DbKjdb(tm,
                             objectList1.get(0).toString()
                             , objectList1.get(1).toString()
-                            , "Y"
+                            , objectList1.get(2).toString()
                             , objectList1.get(3).toString()
                             , objectList1.get(4).toString()
+                            , objectList1.get(6).toString()
                             , ""
-                            , objectList1.get(9).toString()
-                            , ""
-                            , ""
-                            , ""
-                            , objectList1.get(10).toString()
-                            , ""
+                            , objectList1.get(7).toString()
+                            , objectList1.get(11).toString()
+                            , objectList1.get(12).toString()
                             , ""
                             , objectList1.get(8).toString()
+                            , objectList1.get(13).toString()
+                            , objectList1.get(9).toString()
+                            , objectList1.get(10).toString()
                             , objectList1.get(5).toString()
-                            , objectList1.get(6).toString()
-                            , objectList1.get(7).toString()
+                            , objectList1.get(14).toString()
+                            , objectList1.get(15).toString()
                             , "0"//默认0,
+                            , "0"//0
+                            , "0"//0
                     );
                     dbZszfList.add(dbZszf);
                 }
@@ -289,30 +302,68 @@ public class KjdbActivity extends AppCompatActivity {
             public void onDbKjdbListLoaded(List<DbKjdb> dbZszfList) {
                 if (!ListUtils.isEmpty(dbZszfList)) {
                     List<List<Object>> list1 = new ArrayList<>();
-                    List<Object> list = null;
+                    List<List<Object>> list3 = new ArrayList<>();
+//                    List<Object> list = null;
+                    int i = 0;
                     for (DbKjdb kjdb : dbZszfList) {
-                        list = new ArrayList<>();
+//                        list = new ArrayList<>();
                         List<Object> list2 = new ArrayList<>();
-                        list.add(tvQybh.getText().toString());
-                        list.add(tvYyjd.getText().toString());
-                        list.add(etTm.getText().toString());
-                        list.add("Y");
-                        list2.add(kjdb.getXC());//项次
-                        list2.add(kjdb.getLJBH());//物料编号
-                        list2.add(kjdb.getBCSL());//拨出数量
-                        list2.add(kjdb.getBCKW());//拨出库位
-                        list2.add(kjdb.getBCCW());//拨出储位默认为空
-                        list2.add(kjdb.getBCPH());//拨出批号默认为空
-                        list2.add(kjdb.getBRSL());//拨入数量，等于拨出数量
-                        list2.add(kjdb.getBRKW());//  #拨入库位
-                        list2.add(kjdb.getBRCW());//#拨入储位默认为空
-                        list2.add(kjdb.getBRPH());//#拨入批号默认为空
+//                        list.add(tvQybh.getText().toString());
+//                        list.add(tvYyjd.getText().toString());
+                        list2.add(kjdb.getDB());//0d单别
+                        list2.add(kjdb.getDH());//1单号
+                        list2.add(kjdb.getBMBH());//2部门编号
+//                        list.add("Y");
+                        list2.add(kjdb.getXH());//序号3
+//                        list2.add(kjdb.getLJBH());//物料编号
+//                        list2.add(kjdb.getBCSL());//拨出数量
+                        list2.add(kjdb.getBCCW());//拨出仓库4
+                        list2.add(kjdb.getBRCW());//拨入仓库5
+                        list2.add(kjdb.getPH());//品号6
+                        list2.add(kjdb.getSL());//数量7
+                        list2.add("");//8
+//                        list2.add(kjdb.getBRPH());//#拨入批号默认为空
                         list1.add(list2);
+
+                        mDbRepository.getDbKjdbListItem(tm + kjdb.getPH() + i, new DbDataSource.GetDbPickItemCallback() {
+                            @Override
+                            public void onDbPickListItemLoaded(List<DbPickItem> dbPickList) {
+                                for (DbPickItem dbPickItem : dbPickList) {
+                                    if (TextUtils.equals(dbPickItem.getSTATE(), "1")) {
+                                        List<Object> objList = new ArrayList<>();
+                                        objList.add(dbPickItem.getTIME());//移动类型[0]llxx[0]  入库为1出库-1
+                                        objList.add(tm);//[1]
+                                        objList.add(kjdb.getXH());//[2]xc
+                                        objList.add(dbPickItem.getPH());//[3] ph
+                                        objList.add(dbPickItem.getPM());//[4]品名
+                                        objList.add(dbPickItem.getGG());//[5]规格
+                                        objList.add(dbPickItem.getDW());//6单位
+                                        objList.add(dbPickItem.getFLSL());//7发料数量
+                                        objList.add(dbPickItem.getCK());//8仓库
+                                        objList.add(dbPickItem.getKW());//9库位
+                                        objList.add(dbPickItem.getPC());//10批次
+                                        SharedPreferences sp = KjdbActivity.this.getSharedPreferences(
+                                                "config", Activity.MODE_PRIVATE);
+
+                                        String name = sp.getString("name", null);
+                                        objList.add(name);//11操作人员
+                                        objList.add("PDA");//12
+                                        list3.add(objList);
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onDataNotAvailable() {
+
+                            }
+                        });
+                        i++;
                     }
 
 
-                    params.put("kjdb", list);
-                    params.put("kjdb2", list1);
+                    params.put("kjdb1", list1);
+                    params.put("kjdb2", list3);
                     params.put("strToken", "");
                     params.put("strVersion", Utils.getVersions(KjdbActivity.this));
                     params.put("strPoint", "");
@@ -363,15 +414,19 @@ public class KjdbActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode != -1) return;
+        Intent intent = data;
+        String bcsl = intent.getStringExtra("bcsl");
+        String brsl = intent.getStringExtra("brsl");
+        int position = intent.getIntExtra("position", 0);
         switch (requestCode) {
             case toDetail:
-                Intent intent = data;
-                String dbsl = intent.getStringExtra("dbsl");
+
+//                String dbsl = intent.getStringExtra("dbsl");
                 String bckw = intent.getStringExtra("bckw");
                 String bcph = intent.getStringExtra("bcph");
                 String brkw = intent.getStringExtra("brkw");
                 String brph = intent.getStringExtra("brph");
-                int position = intent.getIntExtra("position", 0);
+
                 mDbRepository.getDbKjdbList(tm, new DbDataSource.GetDbKjdbCallback() {
                     @Override
                     public void onDbKjdbListLoaded(List<DbKjdb> dbZszfList) {
@@ -379,46 +434,52 @@ public class KjdbActivity extends AppCompatActivity {
                             if (position == i) {
                                 DbKjdb kjdb = dbZszfList.get(position);
                                 DbKjdb kjdb1 = new DbKjdb(kjdb.getKJDBD(),
-                                        kjdb.getQYBH(),
-                                        kjdb.getYYJD(),
-                                        kjdb.getZDY(),
-                                        kjdb.getXC(),
-                                        kjdb.getLJBH(),
-                                        kjdb.getBCSL(),
-                                        bckw,
-                                        kjdb.getBCCW(),
+                                        kjdb.getDB(),
+                                        kjdb.getDH(),
+                                        kjdb.getXH(),
+                                        kjdb.getPH(),
+                                        kjdb.getPM(),
+                                        kjdb.getSL().substring(0, kjdb.getSL().indexOf(",")),
                                         bcph,
-                                        kjdb.getBRSL(),
-                                        brkw,
-                                        kjdb.getBRCW(),
+                                        bckw,
+                                        kjdb.getISTM(),
+                                        kjdb.getGLCJ(),
                                         brph,
-                                        dbsl,
-                                        kjdb.getMC(),
+                                        brkw,
+                                        kjdb.getPIH(),
+                                        kjdb.getBMBH(),
+                                        kjdb.getBMMC(),
                                         kjdb.getGG(),
                                         kjdb.getDW(),
+                                        kjdb.getKW(),
+                                        bcsl,
+                                        brsl,
                                         "1");
                                 Log.e("######", kjdb1.toString());
                                 dbZszfList.set(position, kjdb1);
                             } else {
                                 DbKjdb kjdb = dbZszfList.get(i);
                                 DbKjdb kjdb1 = new DbKjdb(kjdb.getKJDBD(),
-                                        kjdb.getQYBH(),
-                                        kjdb.getYYJD(),
-                                        kjdb.getZDY(),
-                                        kjdb.getXC(),
-                                        kjdb.getLJBH(),
-                                        kjdb.getBCSL(),
+                                        kjdb.getDB(),
+                                        kjdb.getDH(),
+                                        kjdb.getXH(),
+                                        kjdb.getPH(),
+                                        kjdb.getPM(),
+                                        kjdb.getSL(),
                                         kjdb.getBCKW(),
                                         kjdb.getBCCW(),
-                                        kjdb.getBCPH(),
-                                        kjdb.getBRSL(),
+                                        kjdb.getPIH(),
+                                        kjdb.getBMBH(),
                                         kjdb.getBRKW(),
                                         kjdb.getBRCW(),
-                                        kjdb.getBRPH(),
-                                        kjdb.getDBSL(),
-                                        kjdb.getMC(),
+                                        kjdb.getPIH(),
+                                        kjdb.getBMBH(),
+                                        kjdb.getBMMC(),
                                         kjdb.getGG(),
                                         kjdb.getDW(),
+                                        kjdb.getKW(),
+                                        kjdb.getBCSL(),
+                                        kjdb.getBRSL(),
                                         kjdb.getSTATE());
                                 Log.e("######1", kjdb1.toString());
                                 dbZszfList.set(i, kjdb1);
@@ -435,6 +496,77 @@ public class KjdbActivity extends AppCompatActivity {
 
                     }
                 });
+                break;
+            case 22: //弃用
+//                mDbRepository.getDbKjdbList(tm, new DbDataSource.GetDbKjdbCallback() {
+//                    @Override
+//                    public void onDbKjdbListLoaded(List<DbKjdb> dbZszfList) {
+//                        for (int i = 0; i < ListUtils.getSize(dbZszfList); i++) {
+//                            if (position == i) {
+//                                DbKjdb kjdb = dbZszfList.get(position);
+//                                DbKjdb kjdb1 = new DbKjdb(kjdb.getKJDBD(),
+//                                        kjdb.getDB(),
+//                                        kjdb.getDH(),
+//                                        kjdb.getXH(),
+//                                        kjdb.getPH(),
+//                                        kjdb.getPM(),
+//                                        kjdb.getSL(),
+//                                        kjdb.getBCKW(),
+//                                        kjdb.getBCCW(),
+//                                        kjdb.getPIH(),
+//                                        kjdb.getBMBH(),
+//                                        kjdb.getBRKW(),
+//                                        kjdb.getBRCW(),
+//                                        kjdb.getPIH(),
+//                                        kjdb.getBMBH(),
+//                                        kjdb.getBMMC(),
+//                                        kjdb.getGG(),
+//                                        kjdb.getDW(),
+//                                        kjdb.getKW(),
+//                                        bcsl,
+//                                        brsl,
+//                                        "1");
+//                                Log.e("######", kjdb1.toString());
+//                                dbZszfList.set(position, kjdb1);
+//                            } else {
+//                                DbKjdb kjdb = dbZszfList.get(i);
+//                                DbKjdb kjdb1 = new DbKjdb(kjdb.getKJDBD(),
+//                                        kjdb.getDB(),
+//                                        kjdb.getDH(),
+//                                        kjdb.getXH(),
+//                                        kjdb.getPH(),
+//                                        kjdb.getPM(),
+//                                        kjdb.getSL(),
+//                                        kjdb.getBCKW(),
+//                                        kjdb.getBCCW(),
+//                                        kjdb.getPIH(),
+//                                        kjdb.getBMBH(),
+//                                        kjdb.getBRKW(),
+//                                        kjdb.getBRCW(),
+//                                        kjdb.getPIH(),
+//                                        kjdb.getBMBH(),
+//                                        kjdb.getBMMC(),
+//                                        kjdb.getGG(),
+//                                        kjdb.getDW(),
+//                                        kjdb.getKW(),
+//                                        kjdb.getBCSL(),
+//                                        kjdb.getBRSL(),
+//                                        kjdb.getSTATE());
+//                                Log.e("######1", kjdb1.toString());
+//                                dbZszfList.set(i, kjdb1);
+//                            }
+//                        }
+//                        List<Object> list = DbKjdb.toListObject(dbZszfList);
+//                        adapter.setList(list);
+//                        mDbRepository.deleteDbKjdb(tm);
+//                        mDbRepository.saveDbKjdb(dbZszfList);
+//                    }
+//
+//                    @Override
+//                    public void onDataNotAvailable() {
+//
+//                    }
+//                });
                 break;
         }
     }
@@ -468,24 +600,33 @@ public class KjdbActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
             List<Object> objectList = (List<Object>) list.get(position);
-            //0企业编号 1 据点 2挑拨单号 3项次 4料号 5名称 6规格 7 单位8 调拨数量 9 拨出库位 10拨入库位
-            tvQybh.setText(objectList.get(0).toString());
-            tvYyjd.setText(objectList.get(1).toString());
-            holder.tvWlbh.setText(objectList.get(4).toString());
-            holder.tvDbsl.setText(objectList.get(8).toString());
-            holder.tvXc.setText(objectList.get(3).toString());
-            holder.tvBcck.setText(objectList.get(9).toString());
-            holder.tvBrck.setText(objectList.get(10).toString());
-            if (ListUtils.getSize(objectList) > 11) {
-                if (TextUtils.equals(objectList.get(11).toString(), "1")) {
-                    holder.imageState.setImageDrawable(getResources().getDrawable(R.mipmap.checkbox3_on));
-                } else {
-                    holder.imageState.setImageDrawable(getResources().getDrawable(R.mipmap.checkbox3_off));
-                }
-            } else {
-                objectList.add("0");
+            //0单别 1 单号 2序号 3品号 4品名 5规格 6数量 7 转出仓库 8转入仓库  9 部门编号 10部门名称 11是否启用条码
+            //12管理层级   13批号   14 单位  15库位 16 拨出数量 17拨入数量  18状态
+//            tvQybh.setText(objectList.get(0).toString());
+//            tvYyjd.setText(objectList.get(1).toString());
+            if (ListUtils.getSize(objectList) == 16) {
+                objectList.add("0");//16
+                objectList.add("0");//17
+                objectList.add("0");//17
                 holder.imageState.setImageDrawable(getResources().getDrawable(R.mipmap.checkbox3_off));
             }
+//            holder.tvPpsl.setText(String.valueOf(objectList.get(16)));
+            holder.tvDh.setText(objectList.get(1).toString());
+            holder.tvDbsl.setText(objectList.get(6).toString());
+            holder.tvPc.setText(objectList.get(13).toString());
+            holder.tvPh.setText(objectList.get(3).toString());
+            holder.tvBcck.setText(objectList.get(7).toString());
+            holder.tvBrck.setText(objectList.get(8).toString());
+//            if (ListUtils.getSize(objectList) > 17) {
+            if (TextUtils.equals(objectList.get(18).toString(), "1")) {
+                holder.imageState.setImageDrawable(getResources().getDrawable(R.mipmap.checkbox3_on));
+            } else {
+                holder.imageState.setImageDrawable(getResources().getDrawable(R.mipmap.checkbox3_off));
+            }
+//            } else {
+//                objectList.add("0");
+//                holder.imageState.setImageDrawable(getResources().getDrawable(R.mipmap.checkbox3_off));
+//            }
 
             holder.linlayKjdbContent.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -498,7 +639,20 @@ public class KjdbActivity extends AppCompatActivity {
                     intent.setClass(KjdbActivity.this, KjdbDetailActivity.class);
                     intent.putExtra("data", arrayList);
                     intent.putExtra("position", position);
+                    intent.putExtra("ppsl", holder.tvPpsl.getText().toString());
                     startActivityForResult(intent, toDetail);
+                    overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                }
+            });
+
+            holder.btnAdd.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(KjdbActivity.this, KjdbKcActivity.class);
+                    intent.putExtra("data", objectList.toString());
+                    intent.putExtra("id", tm + String.valueOf(objectList.get(3)) + position);
+                    intent.putExtra("position", position);
+                    startActivityForResult(intent, 22);
                     overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
                 }
             });
@@ -511,11 +665,13 @@ public class KjdbActivity extends AppCompatActivity {
 
         public class ViewHolder extends RecyclerView.ViewHolder {
             @BindView(R.id.tv_wlbh)
-            TextView tvWlbh;
+            TextView tvDh;
             @BindView(R.id.tv_dbsl)
             TextView tvDbsl;
             @BindView(R.id.tv_xc)
-            TextView tvXc;
+            TextView tvPc;
+            @BindView(R.id.tv_ph)
+            TextView tvPh;
             @BindView(R.id.tv_bcck)
             TextView tvBcck;
             @BindView(R.id.tv_brck)
@@ -524,6 +680,10 @@ public class KjdbActivity extends AppCompatActivity {
             LinearLayout linlayKjdbContent;
             @BindView(R.id.image_state)
             ImageView imageState;
+            @BindView(R.id.btn_add)
+            Button btnAdd;
+            @BindView(R.id.tv_ppsl)
+            TextView tvPpsl;
 
             public ViewHolder(View itemView) {
                 super(itemView);

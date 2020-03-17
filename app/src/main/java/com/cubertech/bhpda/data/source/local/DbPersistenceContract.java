@@ -59,9 +59,43 @@ public class DbPersistenceContract {
         public static final String COLUMN_NAME_BHGYY = "BHGYY";//不合格原因
         public static final String TABLE_NAME_CGTZD_ITEM = "DbCgtzdItem";//出货通知单
 
+        /***
+         *    private final String DB;//单别
+         private final String DH;//单号    3
+         private final String XH;//序号4
+         private final String PH;//品号5
+         private final String PM;//规格6
+         private final String SL;//数量7
+         private final String BCKW;//拨出库位8
+         private final String BCCW;//拨出仓库9
+         private final String ISTM;//是否启用条码10
+
+         private final String GLCJ;//管理层级11
+         private final String BRKW;//拨入库位12
+         private final String BRCW;//拨入储位12
+         private final String PIH;//批号14
+
+         private final String BMBH;//部门编号15
+         private final String BMMC;//部门名称16
+         private final String GG;//规格17
+         private final String DW;//单位18
+         private final String KW;//库位
+         private final String STATE;//状态
+         * @param dbKjdbList
+         */
         //库间调拨
         public static final String TABLE_NAME_KJDBD = "DbKjdbd";//采购通知单
         public static final String COLUMN_NAME_KJDBD = "KJDBD";//库间调拨单
+        public static final String COLUMN_NAME_DB = "DB";
+        public static final String COLUMN_NAME_DH = "DH";
+        public static final String COLUMN_NAME_XH = "XH";
+        public static final String COLUMN_NAME_ISTM = "ISTM";
+        public static final String COLUMN_NAME_GLCJ = "GLCJ";
+        public static final String COLUMN_NAME_PIH = "PIH";
+
+        public static final String COLUMN_NAME_BMBH = "BMBH";
+        public static final String COLUMN_NAME_BMMC = "BMMC";
+
         public static final String COLUMN_NAME_BCSL = "BCSL";//拨出数量
         public static final String COLUMN_NAME_BCKW = "BCKW";//拨出库位
         public static final String COLUMN_NAME_BCCW = "BCCW";//拨出储位
@@ -114,6 +148,8 @@ public class DbPersistenceContract {
         public static final String COLUMN_NAME_XMBH = "xmbh";//项目编号
         public static final String COLUMN_NAME_XMMC = "xmmc";//项目名称
         public static final String COLUMN_NAME_IF = "IF";//项目名称
+
+        public static final String TABLE_NAME_KJDB_ITEM = "DbKJDB_ITEM";//库间调拨库存信息表
 
 
     }

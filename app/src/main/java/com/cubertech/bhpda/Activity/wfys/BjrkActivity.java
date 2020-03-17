@@ -287,9 +287,9 @@ public class BjrkActivity extends AppCompatActivity {
                     double YJCL = Double.parseDouble(String.valueOf(objectList.get(5)));//预计产量
                     double XLSL = Double.parseDouble(String.valueOf(split2[1]));//需领数量
                     double TB005 = Double.parseDouble(String.valueOf(split2[2]));
-                    t = String.valueOf(split2[3]).replace(" ", "");
+                    t = String.valueOf(split2.length == 4 ? split2[3] : "").replace(" ", "");
                     double YWGL = Double.parseDouble(String.valueOf(objectList.get(6)));//已完工量
-                    if (t.equals("1")) {
+                    if (TextUtils.equals(t, "1")) {
 
                         if (((YWGL + PPSL) / YJCL * XLSL) > TB005) {
                             ToastUtils.showToast("工单缺领，缺领料号：" + split2[0].trim() + "！");

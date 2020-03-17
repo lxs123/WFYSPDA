@@ -17,7 +17,7 @@ public class DbPickItem {
     private final String PC;   //[5]批次
     private final String DW;   //[6]单位
     private final String KCSL; //[7]库存数量
-    private final String TIME; //[8]最后更新时间
+    private final String TIME; //[8]最后更新时间   //kjdb 时间更替为转移类型  拨出-1，拨入 1
     private final String ID;   // 9标识id 领料单号+ 料号+position  (lld+lh+position)
     private final String STATE;//10选择状态
     private final String FLSL;

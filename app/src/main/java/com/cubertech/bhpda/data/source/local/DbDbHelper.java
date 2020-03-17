@@ -105,23 +105,26 @@ public class DbDbHelper extends SQLiteOpenHelper {
             "CREATE TABLE " + DbPersistenceContract.DbEntry.TABLE_NAME_KJDBD + " (" +
                     DbPersistenceContract.DbEntry.COLUMN_NAME_ID + BOOLEAN_TYPE + " PRIMARY KEY AUTOINCREMENT," +
                     DbPersistenceContract.DbEntry.COLUMN_NAME_KJDBD + TEXT_TYPE + COMMA_SEP +
-                    DbPersistenceContract.DbEntry.COLUMN_NAME_QYBH + TEXT_TYPE + COMMA_SEP +
-                    DbPersistenceContract.DbEntry.COLUMN_NAME_YYJD + TEXT_TYPE + COMMA_SEP +
-                    DbPersistenceContract.DbEntry.COLUMN_NAME_ZDY + TEXT_TYPE + COMMA_SEP +
-                    DbPersistenceContract.DbEntry.COLUMN_NAME_XC + TEXT_TYPE + COMMA_SEP +
-                    DbPersistenceContract.DbEntry.COLUMN_NAME_LJBH + TEXT_TYPE + COMMA_SEP +
-                    DbPersistenceContract.DbEntry.COLUMN_NAME_BCSL + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_DB + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_DH + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_XH + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_PH + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_PM + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_SL + TEXT_TYPE + COMMA_SEP +
                     DbPersistenceContract.DbEntry.COLUMN_NAME_BCKW + TEXT_TYPE + COMMA_SEP +
                     DbPersistenceContract.DbEntry.COLUMN_NAME_BCCW + TEXT_TYPE + COMMA_SEP +
-                    DbPersistenceContract.DbEntry.COLUMN_NAME_BCPH + TEXT_TYPE + COMMA_SEP +
-                    DbPersistenceContract.DbEntry.COLUMN_NAME_BRSL + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_ISTM + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_GLCJ + TEXT_TYPE + COMMA_SEP +
                     DbPersistenceContract.DbEntry.COLUMN_NAME_BRKW + TEXT_TYPE + COMMA_SEP +
                     DbPersistenceContract.DbEntry.COLUMN_NAME_BRCW + TEXT_TYPE + COMMA_SEP +
-                    DbPersistenceContract.DbEntry.COLUMN_NAME_BRPH + TEXT_TYPE + COMMA_SEP +
-                    DbPersistenceContract.DbEntry.COLUMN_NAME_DBSL + TEXT_TYPE + COMMA_SEP +
-                    DbPersistenceContract.DbEntry.COLUMN_NAME_MC + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_PIH + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_BMBH + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_BMMC + TEXT_TYPE + COMMA_SEP +
                     DbPersistenceContract.DbEntry.COLUMN_NAME_GG + TEXT_TYPE + COMMA_SEP +
                     DbPersistenceContract.DbEntry.COLUMN_NAME_DW + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_KW + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_BCSL + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_BRSL + TEXT_TYPE + COMMA_SEP +
                     DbPersistenceContract.DbEntry.COLUMN_NAME_STATE + TEXT_TYPE +
                     " )";
     private static final String SQL_CREATE_LLD =
@@ -251,8 +254,25 @@ public class DbDbHelper extends SQLiteOpenHelper {
                     DbPersistenceContract.DbEntry.COLUMN_NAME_YJCHL + TEXT_TYPE + COMMA_SEP +
                     DbPersistenceContract.DbEntry.COLUMN_NAME_PPSL + TEXT_TYPE + COMMA_SEP +
                     DbPersistenceContract.DbEntry.COLUMN_NAME_XMBH + TEXT_TYPE + COMMA_SEP +
-                    DbPersistenceContract.DbEntry.COLUMN_NAME_XMMC + TEXT_TYPE +COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_XMMC + TEXT_TYPE + COMMA_SEP +
                     DbPersistenceContract.DbEntry.COLUMN_NAME_IF + TEXT_TYPE +
+                    " )";
+
+    private static final String SQL_CREATE_KJDB_ITEM =
+            "CREATE TABLE " + DbPersistenceContract.DbEntry.TABLE_NAME_KJDB_ITEM + " (" +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_ID + BOOLEAN_TYPE + " PRIMARY KEY AUTOINCREMENT," +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_LLDLS_ID + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_PH + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_PM + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_GG + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_CK + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_KW + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_PC + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_DW + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_KCSL + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_TIME + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_STATE + TEXT_TYPE + COMMA_SEP +
+                    DbPersistenceContract.DbEntry.COLUMN_NAME_FLSL + TEXT_TYPE +
                     " )";
 
     public DbDbHelper(Context context) {
@@ -274,6 +294,7 @@ public class DbDbHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_CGTZD_ITEM);
         db.execSQL(SQL_CREATE_ZSZF_ITEM);
         db.execSQL(SQL_CREATE_DDXH_ITEM);
+        db.execSQL(SQL_CREATE_KJDB_ITEM);
     }
 
     @Override

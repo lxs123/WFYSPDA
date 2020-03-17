@@ -386,6 +386,8 @@ public class KndbActivity extends AppCompatActivity {
             List list1 = ListUtils.toList(list2);
             if (ListUtils.getSize(list1) < 9) {
                 list1.add(list1.get(7));
+                map.put("list",list1.toString());
+                list.set(position,map);
             }
 //            holder.tvQybh.setText(String.valueOf(list1.get(0)));
 //            holder.tvJd.setText(String.valueOf(list1.get(1)));

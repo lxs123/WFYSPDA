@@ -16,6 +16,7 @@ import com.cubertech.bhpda.Activity.InStorageActivity;
 import com.cubertech.bhpda.Activity.KwbdActivity;
 import com.cubertech.bhpda.Activity.OutStorageActivity;
 import com.cubertech.bhpda.Activity.PdTestActivity;
+import com.cubertech.bhpda.Activity.RelevancePackage.GlgxjlActivity;
 import com.cubertech.bhpda.Activity.TransferPackage.CjczActivity;
 import com.cubertech.bhpda.Activity.TransferPackage.FgrkActivity;
 import com.cubertech.bhpda.Activity.TransferPackage.FgzyActivity;
@@ -35,11 +36,15 @@ import com.cubertech.bhpda.Activity.TransferPackage.YkczActivity;
 import com.cubertech.bhpda.Activity.TransferPackage.ZjActivity;
 import com.cubertech.bhpda.Activity.WlcxActivity;
 import com.cubertech.bhpda.Activity.ZycxActivity;
+import com.cubertech.bhpda.Activity.wfys.BjplActivity;
 import com.cubertech.bhpda.Activity.wfys.BjrkActivity;
 import com.cubertech.bhpda.Activity.wfys.DdxhActivity;
+import com.cubertech.bhpda.Activity.wfys.KccxActivity;
 import com.cubertech.bhpda.Activity.wfys.RkjyActivity;
 import com.cubertech.bhpda.Activity.wfys.XjActivity;
+import com.cubertech.bhpda.Activity.wfys.YsGlgxjlActivity;
 import com.cubertech.bhpda.Activity.wfys.cgrk.CgrkActivity;
+import com.cubertech.bhpda.Activity.wfys.db.KjdbActivity;
 import com.cubertech.bhpda.Activity.wfys.db.KndbActivity;
 import com.cubertech.bhpda.Activity.wfys.dhys.DhysActivity;
 import com.cubertech.bhpda.Activity.wfys.gx.GxjyActivity;
@@ -187,8 +192,9 @@ public class TransferFragment extends Fragment {
     }
 
     LinearLayout ly_gxzy, ly_fgzy, ly_wgrk, ly_fgrk, ly_zj, ly_rqmdy, ly_fz, ly_mtdy, ly_tpmtdy, ly_cjcz,
-            ly_hbcz, ly_sjcz, ly_xhcz, ly_ykcz, ly_mtfz;
-    LinearLayout gxzy, fgzy, wgrk, fgrk, zj, rqmdy, fz, mtdy, tpmtdy, cjcz, hbcz, sjcz, xhcz, ykcz, mtfz;
+            ly_hbcz, ly_sjcz, ly_xhcz, ly_ykcz, ly_mtfz, ly_bjpl, ly_glgxjl;
+    LinearLayout gxzy, fgzy, wgrk, fgrk, zj, rqmdy, fz, mtdy, tpmtdy, cjcz, hbcz, sjcz, xhcz,
+            ykcz, mtfz, bjpl, glgxjl;
 
     private void initView(View iview) {
         ly_gxzy = (LinearLayout) iview.findViewById(R.id.ly_gxzy);
@@ -207,6 +213,8 @@ public class TransferFragment extends Fragment {
         ly_xhcz = (LinearLayout) iview.findViewById(R.id.ly_xhcz);
         ly_ykcz = (LinearLayout) iview.findViewById(R.id.ly_ykcz);
         ly_mtfz = (LinearLayout) iview.findViewById(R.id.ly_mtfz);
+        ly_bjpl = (LinearLayout) iview.findViewById(R.id.ly_bjpl);
+        ly_glgxjl = (LinearLayout) iview.findViewById(R.id.ly_glgxjl);
         //mPer = "PDAGXZYPDAFGZYPDAWGRKPDAFGRKPDAGXZJPDARQMDYPDARQMFZPDAMTDYPDATPMTDYPDACJCZPDAHBCZ"
         //       + "PDASJCZPDAXHCZPDASJCZPDAMTFZPDAMTFZ";//显示全部的值
         //修改显示的值
@@ -226,9 +234,9 @@ public class TransferFragment extends Fragment {
         if (mPer.indexOf("PDACGRK") >= 0) {
             ly_zj.setVisibility(View.VISIBLE);//显示质检 ==》 潍坊雅士   采购入库
         }
-        if (mPer.indexOf("PDADHYS") >= 0) {
-            ly_rqmdy.setVisibility(View.VISIBLE);//容器码打印 ==》 潍坊雅士 到货验收
-        }
+//        if (mPer.indexOf("PDADHYS") >= 0) {
+        ly_rqmdy.setVisibility(View.VISIBLE);//容器码打印 ==》 潍坊雅士 到货验收
+//        }
         if (mPer.indexOf("PDALL") >= 0) {
             ly_fz.setVisibility(View.VISIBLE);//容器码复制==》 潍坊雅士 工单领料
         }
@@ -256,13 +264,18 @@ public class TransferFragment extends Fragment {
         if (mPer.indexOf("PDAFYLL") >= 0) {
             ly_mtdy.setVisibility(View.VISIBLE);//唛头打印 ==》 潍坊雅士 费用领料
         }
-        ////////////////////////////////////////////////////////////    以下暂时不用
-
-        if (mPer.indexOf("PDAYKCZ") >= 0) {
+        if (mPer.indexOf("PDAKCCX") >= 0) {
             ly_ykcz.setVisibility(View.VISIBLE);//移库操作
         }
-        if (mPer.indexOf("PDAMTFZ") >= 0) {
-            ly_mtfz.setVisibility(View.VISIBLE);//唛头复制
+        ////////////////////////////////////////////////////////////    以下暂时不用
+        ly_mtfz.setVisibility(View.VISIBLE);//唛头复制
+
+        ly_bjpl.setVisibility(View.VISIBLE);
+
+        ly_glgxjl.setVisibility(View.VISIBLE);
+
+        if (mPer.indexOf("PDAQDPD") >= 0) {
+
         }
 
 //        if (mPer.indexOf("PDAWGRK") >= 0) {
@@ -510,7 +523,7 @@ public class TransferFragment extends Fragment {
                 bundle.putParcelable("account", ai);
                 Intent intent = new Intent();
                 intent.putExtras(bundle);
-                intent.setClass(mContext, YkczActivity.class);//移库操作
+                intent.setClass(mContext, KccxActivity.class);//雅士 库存查询
                 mContext.startActivity(intent);
                 mActivity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
@@ -526,9 +539,44 @@ public class TransferFragment extends Fragment {
                 bundle.putParcelable("account", ai);
                 Intent intent = new Intent();
                 intent.putExtras(bundle);
-                intent.setClass(mContext, XTmtfzActivity.class);//唛头复制
+                intent.setClass(mContext, KjdbActivity.class);//唛头复制
                 mContext.startActivity(intent);
                 mActivity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+            }
+        });
+
+        bjpl = (LinearLayout) iview.findViewById(R.id.bjpl);
+        bjpl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AccountInfo ai = new AccountInfo();
+                ai.setName(mName);//用户名
+                ai.setData(mData);//账套
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("account", ai);
+                Intent intent = new Intent();
+                intent.putExtras(bundle);
+                intent.setClass(mContext, BjplActivity.class);//钣金配料
+                mContext.startActivity(intent);
+                mActivity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+            }
+        });
+
+        glgxjl = (LinearLayout) iview.findViewById(R.id.glgxjl);
+        glgxjl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AccountInfo ai = new AccountInfo();
+                ai.setName(mName);//用户名
+                ai.setData(mData);//账套
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("account", ai);
+                Intent intent = new Intent();
+                intent.putExtras(bundle);
+                //intent = new Intent(mContext , GlgxjlActivity.class);
+                intent.setClass(mContext, YsGlgxjlActivity.class);
+                mContext.startActivity(intent);
+
             }
         });
 

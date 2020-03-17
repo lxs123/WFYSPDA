@@ -65,24 +65,22 @@ public class PdTestDetailActivity extends Activity {
         Intent intent = getIntent();
         list = intent.getStringArrayListExtra("list");
         position = intent.getIntExtra("position", 0);
-        //[0]企业编号//[1]据点//[2]清单编号//[3]序号//[4]物料编号//[5]物料名称
-        //[6]物料规格//[7]仓库//[8]库位//[9]批次//[10]库存数量//[11]实盘数量//[12]差异数量
-        //[13]调整数量//[14]创建者//[15]盘点者//[16]调整者//[17]创建时间//[18]盘点时间
-        //[19]调整时间//[20]盘点状态//[21]盘点设备//[22]盘点调整状态//[23] 备用字段1
-        //[24]备用字段2//[25]备用字段3//[26]备用字段4//[27]备用字段5//[28]备用字段6
+        //[0]清单编号//[1]序号//[2]物料编号//[3]物料名称
+        //[4]物料规格//[5]仓库//[6]库位//[7]批次//[8]库存数量//[9]实盘数量//[10]差异数量
+        //[11]调整数量//[12]创建者//[13]盘点者//[14]调整者//[15]创建时间//[16]盘点时间
+        //[17]盘点状态//[18]盘点设备//[19]盘点调整状态//[20] 备用字段1
+        //[22]备用字段2//[25]备用字段3//[26]备用字段4//[27]备用字段5//[28]备用字段6
         //[29]备用字段7//[30]备用字段8//[31]备用字段9//[32]备用字段10
-        tvQdbh.setText(String.valueOf(list.get(2)));
-        tvXh.setText(String.valueOf(list.get(3)));
-        tvWlbh.setText(String.valueOf(list.get(4)));
-        tvWlmc.setText(String.valueOf(list.get(5)));
-        tvWlgg.setText(String.valueOf(list.get(6)));
-        tvQybh.setText(String.valueOf(list.get(0)));
-        tvJd.setText(String.valueOf(list.get(1)));
-        tvKcsl.setText(String.valueOf(list.get(10)));
-        tvCk.setText(String.valueOf(list.get(7)));
-        tvKw.setText(String.valueOf(list.get(8)));
-        tvPc.setText(String.valueOf(list.get(9)));
-        etSpsl.setText(TextUtils.isEmpty(String.valueOf(list.get(11))) ? String.valueOf(list.get(10)) : String.valueOf(list.get(11)));
+        tvQdbh.setText(String.valueOf(list.get(0)));
+        tvXh.setText(String.valueOf(list.get(1)));
+        tvWlbh.setText(String.valueOf(list.get(2)));
+        tvWlmc.setText(String.valueOf(list.get(3)));
+        tvWlgg.setText(String.valueOf(list.get(4)));
+        tvKcsl.setText(String.valueOf(list.get(8)));
+        tvCk.setText(String.valueOf(list.get(5)));
+        tvKw.setText(String.valueOf(list.get(6)));
+        tvPc.setText(String.valueOf(list.get(7)));
+        etSpsl.setText(TextUtils.isEmpty(String.valueOf(list.get(9))) ? String.valueOf(list.get(8)) : String.valueOf(list.get(9)));
         try {
             double spsl = Double.parseDouble(String.valueOf(etSpsl.getText().toString()));
             double kcsl = Double.parseDouble(String.valueOf(tvKcsl.getText().toString()));
@@ -131,9 +129,9 @@ public class PdTestDetailActivity extends Activity {
                     return;
                 }
                 Intent intent = new Intent();
-                list.set(11, etSpsl.getText().toString());
-                list.set(12, etCysl.getText().toString());
-                list.set(13, etTzsl.getText().toString());
+                list.set(9, etSpsl.getText().toString());
+                list.set(10, etCysl.getText().toString());
+                list.set(11, etTzsl.getText().toString());
                 intent.putStringArrayListExtra("list", list);
                 intent.putExtra("position", position);
                 setResult(-1, intent);
@@ -145,9 +143,6 @@ public class PdTestDetailActivity extends Activity {
         }
     }
 
-    /**
-     * @see Activity#onBackPressed() 返回事件 @ add wlg
-     */
     @Override
     public void onBackPressed() {
         super.onBackPressed();

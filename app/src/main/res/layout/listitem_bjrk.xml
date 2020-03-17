@@ -197,7 +197,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="3"
                 android:text="仓        库"
                 android:textColor="#323232"
                 android:textSize="16sp" />
@@ -222,6 +222,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
+            android:visibility="gone"
             android:orientation="horizontal">
 
             <TextView

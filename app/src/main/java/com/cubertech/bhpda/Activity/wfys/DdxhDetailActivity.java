@@ -1,5 +1,6 @@
 package com.cubertech.bhpda.Activity.wfys;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -174,12 +176,19 @@ public class DdxhDetailActivity extends AppCompatActivity {
             String s = String.valueOf(objectList.get(4));
             String[] strings = s.contains("#") ? s.split("#") : (s + "#").split("#");
             objectList1.add(strings[0]);//ck5
-            objectList1.add("********************");//ph5
-            objectList1.add(toList.get(0));//6
-            objectList1.add(toList.get(1));//7dh
-            objectList1.add(objectList.get(0));//8
-            objectList1.add("##########");//9
-            objectList1.add("");//10
+            objectList1.add("********************");//ph6
+            objectList1.add(toList.get(0));//7单别
+            objectList1.add(toList.get(1));//8dh
+            objectList1.add(objectList.get(0));//9序号
+            objectList1.add(objectList.get(10));//10kw
+            objectList1.add("");//11
+            objectList1.add(objectList.get(2));//12品名
+            objectList1.add(objectList.get(3));//13规格
+            SharedPreferences sp = getSharedPreferences(
+                    "config", Activity.MODE_PRIVATE);
+
+            String name = sp.getString("name", null);
+            objectList1.add(name);//14人员
             shjy.add(objectList1);
 
         }
@@ -313,8 +322,13 @@ public class DdxhDetailActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
+            holder.setIsRecyclable(false);
             //0序号 1品号 2品名 3规格 4仓库  5预计出货量  6项目编号  7项目名称8 to004 提交单别
             List<Object> objectList = (List<Object>) list.get(position);
+            if (ListUtils.getSize(objectList) < 11) {
+                objectList.add("");
+                list.set(position, objectList);
+            }
             holder.tvXh.setText(String.valueOf(objectList.get(0)));
             holder.tvPh.setText(String.valueOf(objectList.get(1)));
             holder.tvPm.setText(String.valueOf(objectList.get(2)));
@@ -322,6 +336,7 @@ public class DdxhDetailActivity extends AppCompatActivity {
             holder.tvCk.setText(String.valueOf(objectList.get(4)));
             holder.tvChsl.setText(String.valueOf(objectList.get(5)));
             holder.tvSl.setText(String.valueOf(objectList.get(9)));
+            holder.etKw.setText(String.valueOf(objectList.get(10)));
             holder.tvSl.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                 @Override
                 public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
@@ -356,6 +371,32 @@ public class DdxhDetailActivity extends AppCompatActivity {
                     }
                 }
             });
+            holder.btnDel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    holder.etKw.setText("");
+                    holder.etKw.setSelection(0);
+                    holder.etKw.requestFocus();
+                }
+            });
+            holder.etKw.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+                    objectList.set(10, editable.toString());
+                    list.set(position, objectList);
+                }
+            });
+
 //            holder.tvSl.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 //                @Override
 //                public void onFocusChange(View view, boolean b) {
@@ -392,6 +433,10 @@ public class DdxhDetailActivity extends AppCompatActivity {
             EditText tvSl;
             @BindView(R.id.list_bjrk_sl_content)
             LinearLayout linlaySlContent;
+            @BindView(R.id.et_kw)
+            EditText etKw;
+            @BindView(R.id.list_bjrk_del_kw)
+            Button btnDel;
 
             public ViewHolder(View itemView) {
                 super(itemView);

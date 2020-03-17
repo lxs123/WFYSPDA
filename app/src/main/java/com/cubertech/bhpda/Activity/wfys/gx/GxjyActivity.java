@@ -146,10 +146,10 @@ public class GxjyActivity extends AppCompatActivity {
     }
 
     private void onScanResult() {
-        if (!etTm.getText().toString().contains("#")) {
-            ToastUtils.showToast("请扫描正确格式的单号！");
-            return;
-        }
+//        if (!etTm.getText().toString().contains("#")) {
+//            ToastUtils.showToast("请扫描正确格式的单号！");
+//            return;
+//        }
         String strTm = etTm.getText().toString();
         String[] split = strTm.split("#");
         if (TextUtils.isEmpty(split[0])) {

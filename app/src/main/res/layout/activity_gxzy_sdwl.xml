@@ -212,7 +212,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_weight="5"
                     android:gravity="center_vertical"
-                    android:text="计  划  号"
+                    android:text="工  单  号"
                     android:textSize="17sp" />
 
                 <TextView
@@ -323,7 +323,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_weight="5"
                     android:gravity="center_vertical"
-                    android:text="部门名称"
+                    android:text="加工中心"
                     android:textSize="17sp" />
 
                 <TextView
@@ -344,7 +344,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_weight="5"
                     android:gravity="center_vertical"
-                    android:text="数        量"
+                    android:text="预计产量"
                     android:textSize="17sp" />
 
                 <EditText
@@ -374,6 +374,27 @@
 
             </LinearLayout>
 
+            <LinearLayout style="@style/layout1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="5"
+                    android:gravity="center_vertical"
+                    android:text="已完工量"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tv_jgsb"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="12"
+                    android:gravity="center_vertical"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+
             <LinearLayout
                 style="@style/layout2"
                 android:focusable="true"
@@ -385,7 +406,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_weight="6"
                     android:gravity="center_vertical"
-                    android:text="零件库存号"
+                    android:text="品        号"
                     android:textSize="17sp" />
 
                 <TextView
@@ -408,7 +429,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_weight="6"
                     android:gravity="center_vertical"
-                    android:text="零件名称"
+                    android:text="品        名"
                     android:textSize="17sp" />
 
                 <TextView
@@ -431,7 +452,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_weight="6"
                     android:gravity="center_vertical"
-                    android:text="零件规格"
+                    android:text="规        格"
                     android:textSize="17sp" />
 
                 <TextView
@@ -597,26 +618,6 @@
 
             </LinearLayout>
 
-            <LinearLayout style="@style/layout1">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="15dp"
-                    android:layout_weight="5"
-                    android:gravity="center_vertical"
-                    android:text="加工设备"
-                    android:textSize="17sp" />
-
-                <TextView
-                    android:id="@+id/tv_jgsb"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="12"
-                    android:gravity="center_vertical"
-                    android:textSize="17sp" />
-
-            </LinearLayout>
 
             <LinearLayout style="@style/layout1">
 
@@ -867,7 +868,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_alignParentBottom="true"
         android:background="@color/button"
         android:cursorVisible="true"

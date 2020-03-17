@@ -89,6 +89,28 @@
 
                 </LinearLayout>
 
+                <LinearLayout
+                    style="@style/layout1"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="5"
+                        android:gravity="center_vertical"
+                        android:text="品        号"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tv_ph"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        android:gravity="center_vertical"
+                        android:textSize="17sp" />
+                </LinearLayout>
 
                 <LinearLayout
                     style="@style/layout1"
@@ -101,17 +123,19 @@
                         android:layout_marginLeft="15dp"
                         android:layout_weight="5"
                         android:gravity="center_vertical"
-                        android:text="名        称"
+                        android:text="品        名"
                         android:textSize="17sp" />
 
                     <TextView
-                        android:id="@+id/tv_mc"
+                        android:id="@+id/tv_pm"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="12"
                         android:gravity="center_vertical"
                         android:textSize="17sp" />
                 </LinearLayout>
+
+
 
 
                 <LinearLayout
@@ -136,11 +160,35 @@
                         android:gravity="center_vertical"
                         android:textSize="17sp" />
                 </LinearLayout>
-
                 <LinearLayout
                     style="@style/layout1"
                     android:focusable="true"
                     android:focusableInTouchMode="true">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="5"
+                        android:gravity="center_vertical"
+                        android:text="单        位"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tv_dw"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        android:gravity="center_vertical"
+                        android:textSize="17sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    style="@style/layout1"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:visibility="gone">
 
                     <TextView
                         android:layout_width="0dp"
@@ -160,7 +208,29 @@
                         android:text=""
                         android:textSize="17sp" />
                 </LinearLayout>
+                <LinearLayout
+                    style="@style/layout2"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true">
 
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="5"
+                        android:gravity="center_vertical"
+                        android:text="管理层级"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tv_glcj"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        android:gravity="center_vertical"
+                        android:text=""
+                        android:textSize="17sp" />
+                </LinearLayout>
                 <LinearLayout
                     style="@style/layout1"
                     android:focusable="true"
@@ -172,11 +242,11 @@
                         android:layout_marginLeft="15dp"
                         android:layout_weight="5"
                         android:gravity="center_vertical"
-                        android:text="物料编号"
+                        android:text="库        位"
                         android:textSize="17sp" />
 
                     <TextView
-                        android:id="@+id/tv_wlbh"
+                        android:id="@+id/tv_kw"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="12"
@@ -184,7 +254,51 @@
                         android:text=""
                         android:textSize="17sp" />
                 </LinearLayout>
+                <LinearLayout
+                    style="@style/layout1"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true">
 
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="5"
+                        android:gravity="center_vertical"
+                        android:text="部门编号"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tv_bmbh"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        android:gravity="center_vertical"
+                        android:text=""
+                        android:textSize="17sp" />
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/layout1"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="5"
+                        android:gravity="center_vertical"
+                        android:text="部门名称"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tv_bmmc"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        android:gravity="center_vertical"
+                        android:textSize="17sp" />
+                </LinearLayout>
                 <LinearLayout
                     style="@style/layout1"
                     android:focusable="true"
@@ -210,9 +324,35 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    style="@style/layout2"
+                    style="@style/layout1"
                     android:focusable="true"
                     android:focusableInTouchMode="true">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="5"
+                        android:gravity="center_vertical"
+                        android:text="数        量"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tv_sl"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        android:gravity="center_vertical"
+                        android:text=""
+                        android:textSize="17sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/layout2"
+                    android:focusable="true"
+                    android:visibility="gone"
+                    android:focusableInTouchMode="true">
+
 
                     <TextView
                         android:layout_width="0dp"
@@ -269,7 +409,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    style="@style/layout1"
+                    style="@style/layout2"
                     android:focusable="true"
                     android:focusableInTouchMode="true">
 
@@ -282,7 +422,7 @@
                         android:text="拨出仓库"
                         android:textSize="17sp" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/et_bckw"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -306,7 +446,7 @@
                         android:text="拨入仓库"
                         android:textSize="17sp" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/et_brkw"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -331,11 +471,11 @@
                         android:layout_marginLeft="15dp"
                         android:layout_weight="5"
                         android:gravity="center_vertical"
-                        android:text="匹配数量"
+                        android:text="拨出数量"
                         android:textSize="17sp" />
 
                     <TextView
-                        android:id="@+id/tv_ppsl"
+                        android:id="@+id/tv_bcsl"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="12"
@@ -347,7 +487,33 @@
                         android:textSize="17sp" />
 
                 </LinearLayout>
+                <LinearLayout
+                    style="@style/layout1"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true">
 
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="5"
+                        android:gravity="center_vertical"
+                        android:text="拨入数量"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tv_brsl"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        android:gravity="center_vertical"
+                        android:hint="请选择"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:nextFocusForward="@+id/tv_brph"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
                 <LinearLayout
                     style="@style/layout1"
                     android:focusable="true"
@@ -364,6 +530,30 @@
 
                     <EditText
                         android:id="@+id/tv_brph"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        android:gravity="center_vertical"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:textSize="17sp" />
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/layout1"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="5"
+                        android:gravity="center_vertical"
+                        android:text="拨出批号"
+                        android:textSize="17sp" />
+
+                    <EditText
+                        android:id="@+id/tv_bcph"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="12"

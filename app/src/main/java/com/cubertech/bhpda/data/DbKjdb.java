@@ -8,49 +8,58 @@ import java.util.List;
  */
 
 public class DbKjdb {
+    //0单别 1 单号 2序号 3品号 4品名 5规格 6数量 7 转出仓库 8转入仓库  9 部门编号 10部门名称 11是否启用条码
+    //12管理层级   13批号   14 单位   15 库位   16 状态
     private final String KJDBD;//库间调拨单1
-    private final String QYBH;//企业编号2
-    private final String YYJD;//营业据点3
-    private final String ZDY;//自定义4
-    private final String XC;//项次5
-    private final String LJBH;//料件编号6
-    private final String BCSL;//拨出数量7
+    private final String DB;//单别
+    private final String DH;//单号    3
+    private final String XH;//序号4
+    private final String PH;//品号5
+    private final String PM;//规格6
+    private final String SL;//数量7
     private final String BCKW;//拨出库位8
-    private final String BCCW;//拨出储位9
-    private final String BCPH;//拨出批号10
+    private final String BCCW;//拨出仓库9
+    private final String ISTM;//是否启用条码10
 
-    private final String BRSL;//拨入数量11
+    private final String GLCJ;//管理层级11
     private final String BRKW;//拨入库位12
     private final String BRCW;//拨入储位12
-    private final String BRPH;//拨入批号14
+    private final String PIH;//批号14
 
-    private final String DBSL;//调拨数量15
-    private final String MC;//名称16
+    private final String BMBH;//部门编号15
+    private final String BMMC;//部门名称16
     private final String GG;//规格17
     private final String DW;//单位18
+    private final String KW;//库位
+    private final String BCSL;
+    private final String BRSL;
     private final String STATE;//状态
 
-    public DbKjdb(String KJDBD, String QYBH, String YYJD, String ZDY, String XC, String LJBH,
-                  String BCSL, String BCKW, String BCCW, String BCPH, String BRSL, String BRKW,
-                  String BRCW, String BRPH, String ydsl, String mc, String gg, String dw, String STATE) {
+    public DbKjdb(String KJDBD, String DB, String DH, String XH, String PH, String PM,
+                  String SL, String BCPIH, String BCCW, String ISTM, String GLCJ, String BRPIH,
+                  String BRCW, String PIH, String BMBH, String BMMC, String gg, String dw,
+                  String KW, String BCSL, String BRSL, String STATE) {
         this.KJDBD = KJDBD;
-        this.QYBH = QYBH;
-        this.YYJD = YYJD;
-        this.ZDY = ZDY;
-        this.XC = XC;
-        this.LJBH = LJBH;
-        this.BCSL = BCSL;
-        this.BCKW = BCKW;
+        this.DB = DB;
+        this.DH = DH;
+        this.XH = XH;
+        this.PH = PH;
+        this.PM = PM;
+        this.SL = SL;
+        this.BCKW = BCPIH;
         this.BCCW = BCCW;
-        this.BCPH = BCPH;
-        this.BRSL = BRSL;
-        this.BRKW = BRKW;
+        this.ISTM = ISTM;
+        this.GLCJ = GLCJ;
+        this.BRKW = BRPIH;
         this.BRCW = BRCW;
-        this.BRPH = BRPH;
-        this.DBSL = ydsl;
-        this.MC = mc;
+        this.PIH = PIH;
+        this.BMBH = BMBH;
+        this.BMMC = BMMC;
         this.GG = gg;
         this.DW = dw;
+        this.KW = KW;
+        this.BRSL = BRSL;
+        this.BCSL = BCSL;
         this.STATE = STATE;
     }
 
@@ -58,28 +67,28 @@ public class DbKjdb {
         return KJDBD;
     }
 
-    public String getQYBH() {
-        return QYBH;
+    public String getDB() {
+        return DB;
     }
 
-    public String getYYJD() {
-        return YYJD;
+    public String getDH() {
+        return DH;
     }
 
-    public String getZDY() {
-        return ZDY;
+    public String getXH() {
+        return XH;
     }
 
-    public String getXC() {
-        return XC;
+    public String getPH() {
+        return PH;
     }
 
-    public String getLJBH() {
-        return LJBH;
+    public String getPM() {
+        return PM;
     }
 
-    public String getBCSL() {
-        return BCSL;
+    public String getSL() {
+        return SL;
     }
 
     public String getBCKW() {
@@ -90,12 +99,12 @@ public class DbKjdb {
         return BCCW;
     }
 
-    public String getBCPH() {
-        return BCPH;
+    public String getISTM() {
+        return ISTM;
     }
 
-    public String getBRSL() {
-        return BRSL;
+    public String getGLCJ() {
+        return GLCJ;
     }
 
     public String getBRKW() {
@@ -106,16 +115,16 @@ public class DbKjdb {
         return BRCW;
     }
 
-    public String getBRPH() {
-        return BRPH;
+    public String getPIH() {
+        return PIH;
     }
 
-    public String getDBSL() {
-        return DBSL;
+    public String getBMBH() {
+        return BMBH;
     }
 
-    public String getMC() {
-        return MC;
+    public String getBMMC() {
+        return BMMC;
     }
 
     public String getGG() {
@@ -130,48 +139,71 @@ public class DbKjdb {
         return STATE;
     }
 
+    public String getKW() {
+        return KW;
+    }
+
+    public String getBCSL() {
+        return BCSL;
+    }
+
+    public String getBRSL() {
+        return BRSL;
+    }
+
     @Override
     public String toString() {
         return "DbKjdb{" +
                 "KJDBD='" + KJDBD + '\'' +
-                ", QYBH='" + QYBH + '\'' +
-                ", YYJD='" + YYJD + '\'' +
-                ", ZDY='" + ZDY + '\'' +
-                ", XC='" + XC + '\'' +
-                ", LJBH='" + LJBH + '\'' +
-                ", BCSL='" + BCSL + '\'' +
+                ", DB='" + DB + '\'' +
+                ", DH='" + DH + '\'' +
+                ", XH='" + XH + '\'' +
+                ", PH='" + PH + '\'' +
+                ", PM='" + PM + '\'' +
+                ", SL='" + SL + '\'' +
                 ", BCKW='" + BCKW + '\'' +
                 ", BCCW='" + BCCW + '\'' +
-                ", BCPH='" + BCPH + '\'' +
-                ", BRSL='" + BRSL + '\'' +
+                ", ISTM='" + ISTM + '\'' +
+                ", GLCJ='" + GLCJ + '\'' +
                 ", BRKW='" + BRKW + '\'' +
                 ", BRCW='" + BRCW + '\'' +
-                ", BRPH='" + BRPH + '\'' +
-                ", DBSL='" + DBSL + '\'' +
-                ", MC='" + MC + '\'' +
+                ", PIH='" + PIH + '\'' +
+                ", BMBH='" + BMBH + '\'' +
+                ", BMMC='" + BMMC + '\'' +
                 ", GG='" + GG + '\'' +
                 ", DW='" + DW + '\'' +
+                ", KW='" + KW + '\'' +
+                ", BCSL='" + BCSL + '\'' +
+                ", BRSL='" + BRSL + '\'' +
                 ", STATE='" + STATE + '\'' +
                 '}';
     }
 
     public static List<Object> toListObject(List<DbKjdb> dbZszfList) {
-        //0企业编号 1 据点 2挑拨单号 3项次 4料号 5名称 6规格 7 单位8 调拨数量 9 拨出库位 10拨入库位
+        //0单别 1 单号 2序号 3品号 4品名 5规格 6数量 7 转出仓库 8转入仓库  9 部门编号 10部门名称 11是否启用条码
+        //12管理层级   13批号   14 单位 15库位  16状态
         List<Object> objList = new ArrayList<>();
         for (DbKjdb kjdb : dbZszfList) {
             List<Object> list = new ArrayList<>();
-            list.add(kjdb.getQYBH());//0
-            list.add(kjdb.getYYJD());//1
-            list.add(kjdb.getKJDBD());//2
-            list.add(kjdb.getXC());//3
-            list.add(kjdb.getLJBH());//4
-            list.add(kjdb.getMC());//5
-            list.add(kjdb.getGG());//6
-            list.add(kjdb.getDW());//7
-            list.add(kjdb.getDBSL());//8
-            list.add(kjdb.getBCKW());//9
-            list.add(kjdb.getBRKW());//10
-            list.add(kjdb.getSTATE());//状态11
+            list.add(kjdb.getDB());//0
+            list.add(kjdb.getDH());//1
+            list.add(kjdb.getXH());//2
+            list.add(kjdb.getPH());//3
+            list.add(kjdb.getPM());//4
+            list.add(kjdb.getGG());//5
+            list.add(kjdb.getSL());//6
+            list.add(kjdb.getBCCW());//7
+            list.add(kjdb.getBRCW());//8
+            list.add(kjdb.getBMBH());//9
+            list.add(kjdb.getBMMC());//10
+            list.add(kjdb.getISTM());//11
+            list.add(kjdb.getGLCJ());//12
+            list.add(kjdb.getPIH());//13
+            list.add(kjdb.getDW());//14dw
+            list.add(kjdb.getKW());//15kw
+            list.add(kjdb.getBCCW());//16bcsl
+            list.add(kjdb.getBRSL());//17brsl
+            list.add(kjdb.getSTATE());//状态18
             objList.add(list);
         }
 
