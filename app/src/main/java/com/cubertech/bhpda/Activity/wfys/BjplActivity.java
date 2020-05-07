@@ -109,10 +109,10 @@ public class BjplActivity extends AppCompatActivity {
         etGddh.setText(split[0]);
         tvSbh.setText(split[split.length - 1]);
         //todo 请填写  方法名
-        String link = "hqbjplcp";
+        String link = "hqtzcpm";
         HashMap<String, Object> params = new HashMap<String, Object>();
         //todo 请修改  参数名
-        params.put("pmdsdocno", split[0]);
+        params.put("barcode", strTm);
         params.put("strToken", "");
         params.put("strVersion", Utils.getVersions(this));
         params.put("strPoint", "");
@@ -195,11 +195,11 @@ public class BjplActivity extends AppCompatActivity {
 //        }
 
         //todo 请填写  方法名
-        String link = "hqbjplpl";
+        String link = "hqtzplm";
         HashMap<String, Object> params = new HashMap<String, Object>();
         //todo 请修改  参数名
-        params.put("pmdsdocno", split[1]);
-        params.put("pmdsdocno2", tmAll);
+        params.put("barcode", plm);
+//        params.put("pmdsdocno2", tmAll);
         params.put("strToken", "");
         params.put("strVersion", Utils.getVersions(this));
         params.put("strPoint", "");
@@ -260,7 +260,7 @@ public class BjplActivity extends AppCompatActivity {
         }
 
         //todo 请填写  方法名
-        String link = "bcbjpl";
+        String link = "bctzgg";
         HashMap<String, Object> params = new HashMap<String, Object>();
         //todo 请修改  参数名
         params.put("shjy", list1);

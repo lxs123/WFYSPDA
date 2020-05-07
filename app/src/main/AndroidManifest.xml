@@ -375,12 +375,20 @@
             android:name=".Activity.wfys.YsGlgxjlActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".Activity.printerB3s.PrinterConfirmActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name=".Activity.printerB3s.PrinterCopyConfirmActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
         <!--<receiver android:name=".Activity.printerB3s.BluetoothConnectActivityReceiver" >-->
         <!--<intent-filter android:priority="1000">-->
         <!--<action android:name="android.bluetooth.device.action.PAIRING_REQUEST" />-->
         <!--</intent-filter>-->
         <!--</receiver>-->
-
         <!--7.0添加-->
         <provider
             android:name="android.support.v4.content.FileProvider"

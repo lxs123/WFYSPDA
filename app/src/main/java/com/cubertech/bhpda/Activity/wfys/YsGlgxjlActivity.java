@@ -108,12 +108,12 @@ public class YsGlgxjlActivity extends AppCompatActivity {
 //            ToastUtils.showToast("请扫描正确格式的主件码！");
 //            return;
 //        }
-        etZj.setText(split[1]);
+        etZj.setText(strTm);
         //todo 请填写  方法名
-        String link = "hqglgxzj";
+        String link = "hqzjtomysql";
         HashMap<String, Object> params = new HashMap<String, Object>();
         //todo 请修改  参数名
-        params.put("pmdsdocno", split[1]);
+        params.put("barcode", strTm);
         params.put("strToken", "");
         params.put("strVersion", Utils.getVersions(this));
         params.put("strPoint", "");
@@ -175,11 +175,11 @@ public class YsGlgxjlActivity extends AppCompatActivity {
 //        }
 
         //todo 请填写  方法名
-        String link = "hqglgxyj";
+        String link = "hqyjtomysql";
         HashMap<String, Object> params = new HashMap<String, Object>();
         //todo 请修改  参数名
-        params.put("pmdsdocno", split[1]);
-        params.put("pmdsdocno2", split[0]);
+        params.put("barcode", yjm);
+//        params.put("pmdsdocno2", split[0]);
         params.put("strToken", "");
         params.put("strVersion", Utils.getVersions(this));
         params.put("strPoint", "");

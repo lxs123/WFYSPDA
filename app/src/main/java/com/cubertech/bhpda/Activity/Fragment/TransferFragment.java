@@ -36,6 +36,8 @@ import com.cubertech.bhpda.Activity.TransferPackage.YkczActivity;
 import com.cubertech.bhpda.Activity.TransferPackage.ZjActivity;
 import com.cubertech.bhpda.Activity.WlcxActivity;
 import com.cubertech.bhpda.Activity.ZycxActivity;
+import com.cubertech.bhpda.Activity.printerB3s.PrinterConfirmActivity;
+import com.cubertech.bhpda.Activity.printerB3s.PrinterCopyConfirmActivity;
 import com.cubertech.bhpda.Activity.wfys.BjplActivity;
 import com.cubertech.bhpda.Activity.wfys.BjrkActivity;
 import com.cubertech.bhpda.Activity.wfys.DdxhActivity;
@@ -192,9 +194,9 @@ public class TransferFragment extends Fragment {
     }
 
     LinearLayout ly_gxzy, ly_fgzy, ly_wgrk, ly_fgrk, ly_zj, ly_rqmdy, ly_fz, ly_mtdy, ly_tpmtdy, ly_cjcz,
-            ly_hbcz, ly_sjcz, ly_xhcz, ly_ykcz, ly_mtfz, ly_bjpl, ly_glgxjl;
+            ly_hbcz, ly_sjcz, ly_xhcz, ly_ykcz, ly_mtfz, ly_bjpl, ly_glgxjl, ly_bqdy, ly_fzdy;
     LinearLayout gxzy, fgzy, wgrk, fgrk, zj, rqmdy, fz, mtdy, tpmtdy, cjcz, hbcz, sjcz, xhcz,
-            ykcz, mtfz, bjpl, glgxjl;
+            ykcz, mtfz, bjpl, glgxjl, bqdy, fzdy;
 
     private void initView(View iview) {
         ly_gxzy = (LinearLayout) iview.findViewById(R.id.ly_gxzy);
@@ -215,6 +217,13 @@ public class TransferFragment extends Fragment {
         ly_mtfz = (LinearLayout) iview.findViewById(R.id.ly_mtfz);
         ly_bjpl = (LinearLayout) iview.findViewById(R.id.ly_bjpl);
         ly_glgxjl = (LinearLayout) iview.findViewById(R.id.ly_glgxjl);
+        ly_bqdy = (LinearLayout) iview.findViewById(R.id.ly_bqdy);
+
+        ly_fzdy = (LinearLayout) iview.findViewById(R.id.ly_fzdy);
+        if (mPer.indexOf("PDADY") >= 0)
+            ly_bqdy.setVisibility(View.VISIBLE);
+        if (mPer.indexOf("PDADYFZ") >= 0)
+            ly_fzdy.setVisibility(View.VISIBLE);
         //mPer = "PDAGXZYPDAFGZYPDAWGRKPDAFGRKPDAGXZJPDARQMDYPDARQMFZPDAMTDYPDATPMTDYPDACJCZPDAHBCZ"
         //       + "PDASJCZPDAXHCZPDASJCZPDAMTFZPDAMTFZ";//显示全部的值
         //修改显示的值
@@ -234,9 +243,9 @@ public class TransferFragment extends Fragment {
         if (mPer.indexOf("PDACGRK") >= 0) {
             ly_zj.setVisibility(View.VISIBLE);//显示质检 ==》 潍坊雅士   采购入库
         }
-//        if (mPer.indexOf("PDADHYS") >= 0) {
+        if (mPer.indexOf("PDADHYS") >= 0) {
         ly_rqmdy.setVisibility(View.VISIBLE);//容器码打印 ==》 潍坊雅士 到货验收
-//        }
+        }
         if (mPer.indexOf("PDALL") >= 0) {
             ly_fz.setVisibility(View.VISIBLE);//容器码复制==》 潍坊雅士 工单领料
         }
@@ -268,11 +277,20 @@ public class TransferFragment extends Fragment {
             ly_ykcz.setVisibility(View.VISIBLE);//移库操作
         }
         ////////////////////////////////////////////////////////////    以下暂时不用
-        ly_mtfz.setVisibility(View.VISIBLE);//唛头复制
+        if (mPer.indexOf("PDAKJDB") >= 0) {
+            ly_mtfz.setVisibility(View.VISIBLE);//唛头复制
+        }
 
-        ly_bjpl.setVisibility(View.VISIBLE);
 
-        ly_glgxjl.setVisibility(View.VISIBLE);
+        if (mPer.indexOf("PDABJPL") >= 0) {
+            ly_bjpl.setVisibility(View.VISIBLE);
+        }
+        if (mPer.indexOf("PDAGLGXJL") >= 0) {
+            ly_glgxjl.setVisibility(View.VISIBLE);
+        }
+
+
+
 
         if (mPer.indexOf("PDAQDPD") >= 0) {
 
@@ -575,6 +593,42 @@ public class TransferFragment extends Fragment {
                 intent.putExtras(bundle);
                 //intent = new Intent(mContext , GlgxjlActivity.class);
                 intent.setClass(mContext, YsGlgxjlActivity.class);
+                mContext.startActivity(intent);
+
+            }
+        });
+
+        bqdy = (LinearLayout) iview.findViewById(R.id.bqdy);
+        bqdy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AccountInfo ai = new AccountInfo();
+                ai.setName(mName);//用户名
+                ai.setData(mData);//账套
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("account", ai);
+                Intent intent = new Intent();
+                intent.putExtras(bundle);
+                //intent = new Intent(mContext , GlgxjlActivity.class);
+                intent.setClass(mContext, PrinterConfirmActivity.class);
+                mContext.startActivity(intent);
+
+            }
+        });
+
+        fzdy = (LinearLayout) iview.findViewById(R.id.fzdy);
+        fzdy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AccountInfo ai = new AccountInfo();
+                ai.setName(mName);//用户名
+                ai.setData(mData);//账套
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("account", ai);
+                Intent intent = new Intent();
+                intent.putExtras(bundle);
+                //intent = new Intent(mContext , GlgxjlActivity.class);
+                intent.setClass(mContext, PrinterCopyConfirmActivity.class);
                 mContext.startActivity(intent);
 
             }
